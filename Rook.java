@@ -1,10 +1,26 @@
 /**
  * @program: Hw6_chessPieces
  * @description:
- * @author: Siyu Hou
+ * @author: Siyu Hou, Kicho Yu
  * @create: 2021-02-26 02:41
  **/
 public class Rook implements ChessPiece{
+    private int row;
+    private int column;
+    private Color color;
+
+    public Rook(int row, int column, Color color){
+        setRow(row);
+        setColumn(column);
+        setColor(color);
+    }
+
+    public Rook(Color color){
+        setRow(0);
+        setColumn(0);
+        setColor(color);
+    }
+    
     @Override
     public int getRow() {
         return 0;
@@ -18,6 +34,18 @@ public class Rook implements ChessPiece{
     @Override
     public Color getColor() {
         return null;
+    }
+
+    public void setRow(int row) {
+        this.row = row;
+    }
+
+    public void setColumn(int column) {
+        this.column = column;
+    }
+
+    public void setColor(Color color) {
+        this.color = color;
     }
 
     @Override
