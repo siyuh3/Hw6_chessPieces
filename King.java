@@ -9,7 +9,7 @@ public class King implements ChessPiece {
     private int column;
     private Color color;
 
-    public King(int row, int column, Color) {
+    public King(int row, int column, Color color) {
         setRow(row);
         setColumn(column);
         setColor(color);
