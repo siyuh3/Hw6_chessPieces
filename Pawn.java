@@ -50,7 +50,10 @@ public class Pawn implements ChessPiece{
 
     @Override
     public boolean canMove(int row, int col) {
-        return false;
+        if (row < 0 || row > 7 || col < 0 || col > 7) {
+            return false;
+        }
+        return this.getCol() == col && (row - this.getRow()) == 1;
     }
 
     @Override
