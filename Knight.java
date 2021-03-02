@@ -50,7 +50,11 @@ public class Knight implements ChessPiece{
     
     @Override
     public boolean canMove(int row, int col) {
-        return false;
+        if (row < 0 || row > 7 || col < 0 || col > 7) {
+            return false;
+        }
+        double distance = Math.sqrt(Math.pow(this.getRow() - row, 2) + Math.pow(this.getCol() - col, 2));
+        return distance == Math.sqrt(5);
     }
 
     @Override
