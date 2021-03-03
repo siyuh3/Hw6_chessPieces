@@ -59,6 +59,9 @@ public class Pawn implements ChessPiece, BoardSize {
 
     public void setRow(int row) throws IllegalArgumentException {
         if (row < MIN_ROW || row > MAX_ROW) {
+            /*
+            should the IllegalArgument say "The row should be greater than -1 and smaller than 8?
+             */
             throw new IllegalArgumentException("The row should bigger than 0 and smaller than 7!");
         }
         this.row = row;
@@ -66,6 +69,9 @@ public class Pawn implements ChessPiece, BoardSize {
 
     public void setColumn(int column) throws IllegalArgumentException {
         if (column < MIN_COL || column > MAX_COL) {
+            /*
+            should the IllegalArgument say "The column should be greater than -1 and smaller than 8?
+             */
             throw new IllegalArgumentException("The column should bigger than 0 and smaller than 7!");
         }
         this.column = column;
@@ -90,7 +96,8 @@ public class Pawn implements ChessPiece, BoardSize {
      */
     @Override
     public boolean canKill(ChessPiece piece) {
-       if(this.color != piece.getColor()){
+       if(this.color != piece.getColor() & this.canMove(this.getRow(), this.getCol())
+               == piece.canMove(piece.getRow(), piece.getRow())){
            return true;
        }
        return false;
