@@ -70,11 +70,21 @@ public class Bishop implements ChessPiece, BoardSize {
         this.color = color;
     }
 
+    /**
+     * Determines if a player's bishop can move to the given spot
+     * @param row the row of the targeted spot
+     * @param col the column of the targeted spot
+     * @return true if this bishop can move to the given targeted spot and 
+     *         false if not
+     */
     @Override
     public boolean canMove(int row, int col) {
+    	// Validates the targeted spot
         if (row < MIN_ROW || row > MAX_ROW || col < MIN_COL || col > MAX_COL) {
             return false;
         }
+        // As bishop moves diagonally, the distance between the targeted spot and the
+        // original spot must be square root of two 
         double distance = Math.sqrt(Math.pow(this.getRow() - row, 2) + Math.pow(this.getCol() - col, 2));
         return distance == Math.sqrt(2);
     }
