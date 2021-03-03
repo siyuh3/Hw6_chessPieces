@@ -81,12 +81,27 @@ public class Pawn implements ChessPiece, BoardSize {
         this.color = color;
     }
 
+   /**
+     * Determines if a player's pawn can move to the given spot
+     * @param row the row of the targeted spot
+     * @param col the column of the targeted spot
+     * @return true if this pawn can move to the given targeted spot and 
+     *         false if not
+     */
     @Override
     public boolean canMove(int row, int col) {
+        // Validates the targeted spot
         if (row < MIN_ROW || row > MAX_ROW || col < MIN_COL || col > MAX_COL) {
             return false;
         }
-        return this.getCol() == col && (row - this.getRow()) == 1;
+        // A white pawn can only move one unit upward in row
+        if (getColor == White) {
+            return this.getCol() == col && (row - this.getRow()) == 1;
+        } else {
+            // A black pawn can only move one unit downward in row
+            return this.getCol() == col && (this.getRow() - row) == 1;
+        }
+        
     }
 
     /**
