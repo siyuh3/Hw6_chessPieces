@@ -67,11 +67,22 @@ public class Knight implements ChessPiece, BoardSize {
         this.color = color;
     }
 
+    /**
+     * Determines if a player's knight can move to the given spot
+     * @param row the row of the targeted spot
+     * @param col the column of the targeted spot
+     * @return true if this knight can move to the given targeted spot and 
+     *         false if not
+     */
     @Override
     public boolean canMove(int row, int col) {
+        // Validates the targeted spot
         if (row < MIN_ROW || row > MAX_ROW || col < MIN_COL || col > MAX_COL) {
             return false;
         }
+        // A knight can move only in an L pattern, either 2 units in row and 1 unit in column or 
+        // the other way around. Therefore, the distance between the targeted spot and the
+        // original spot is square root of 5, by the pythagorean theorem
         double distance = Math.sqrt(Math.pow(this.getRow() - row, 2) + Math.pow(this.getCol() - col, 2));
         return distance == Math.sqrt(5);
     }
