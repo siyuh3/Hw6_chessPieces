@@ -73,8 +73,16 @@ public class Bishop implements ChessPiece, BoardSize {
         return distance == Math.sqrt(2);
     }
 
+    /**
+     * Determines if a player's chess price can kill an opponents chess piece.
+     * @param piece ChessPiece object opponents chess piece.
+     * @return true if opponent's piece is a different color and false otherwise.
+     */
     @Override
     public boolean canKill(ChessPiece piece) {
+        if(this.color != piece.getColor()){
+            return true;
+        }
         return false;
     }
 }

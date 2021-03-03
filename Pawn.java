@@ -83,8 +83,16 @@ public class Pawn implements ChessPiece, BoardSize {
         return this.getCol() == col && (row - this.getRow()) == 1;
     }
 
+    /**
+     * Determines if a player's chess price can kill an opponents chess piece.
+     * @param piece ChessPiece object opponents chess piece
+     * @return true if opponent's piece is a different color and false if not.
+     */
     @Override
     public boolean canKill(ChessPiece piece) {
-        return false;
+       if(this.color != piece.getColor()){
+           return true;
+       }
+       return false;
     }
 }

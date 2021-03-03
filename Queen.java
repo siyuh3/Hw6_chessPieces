@@ -69,8 +69,16 @@ public class Queen implements ChessPiece, BoardSize {
         return distance == Math.sqrt(2) || distance == 1;
     }
 
+    /**
+     * Determines if a player's chess piece can kill an opponents chess piece.
+     * @param piece ChessPiece object opponents chess piece
+     * @return true if the opponents piece is a different color and false if not.
+     */
     @Override
     public boolean canKill(ChessPiece piece) {
+        if(this.color != piece.getColor()){
+            return true;
+        }
         return false;
     }
 }
