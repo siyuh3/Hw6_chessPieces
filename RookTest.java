@@ -3,7 +3,7 @@ import org.junit.Before;
 import static org.junit.Assert.assertEquals;
 
 /**
- * A test that tests the Rook class.
+ * A Junit test that tests the Rook class.
  */
 public class RookTest {
     private Rook rook1;

@@ -3,7 +3,7 @@ import org.junit.Before;
 import static org.junit.Assert.assertEquals;
 
 /**
- * A test that tests the Pawn class.
+ * A JUnit test that tests the Pawn class.
  */
 public class PawnTest {
     private Pawn pawn1;

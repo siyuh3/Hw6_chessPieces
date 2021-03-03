@@ -3,7 +3,7 @@ import org.junit.Before;
 import static org.junit.Assert.assertEquals;
 
 /**
- * A test that tests the Bishop class.
+ * A JUnit test that tests the Bishop class.
  */
 public class BishopTest {
     private Bishop bishop1;
