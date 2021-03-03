@@ -66,15 +66,26 @@ public class Queen implements ChessPiece, BoardSize {
         this.color = color;
     }
 
+    /**
+     * Determines if a player's queen can move to the given spot
+     * @param row the row of the targeted spot
+     * @param col the column of the targeted spot
+     * @return true if this queen can move to the given targeted spot and 
+     *         false if not
+     */
     @Override
     public boolean canMove(int row, int col) {
+        // Validates the targeted spot
         if (row < MIN_ROW || row > MAX_ROW || col < MIN_COL || col > MAX_COL) {
             return false;
         }
+
+        // As a queen can move horizontally, vertically, and diagonally, the distance between
+        // the targeted spot and the original spot can be one, either in row or column if
+        // it moves vertically or horizontally, or be square root of two if diagonally
         double distance = Math.sqrt(Math.pow(this.getRow() - row, 2) + Math.pow(this.getCol() - col, 2));
         return distance == Math.sqrt(2) || distance == 1;
     }
-
     /**
      * Determines if a player's chess piece can kill an opponents chess piece.
      * @param piece ChessPiece object opponents chess piece
