@@ -95,7 +95,7 @@ public class Pawn implements ChessPiece, BoardSize {
             return false;
         }
         // A white pawn can only move one unit upward in row
-        if (getColor == White) {
+        if (this.getColor() == Color.WHITE) {
             return this.getCol() == col && (row - this.getRow()) == 1;
         } else {
             // A black pawn can only move one unit downward in row
