@@ -82,6 +82,7 @@ public class Bishop implements ChessPiece, BoardSize {
         }
         // As bishop moves diagonally, the distance between the targeted spot and the
         // original spot must be square root of two 
+        // Should this return a bool instead of distance?
         double distance = Math.sqrt(Math.pow(this.getRow() - row, 2) + Math.pow(this.getCol() - col, 2));
         return distance == Math.sqrt(2);
     }
