@@ -1,3 +1,5 @@
+package P1;
+
 /**
  * @program: Hw6_chessPieces
  * @description: This class represent the Pawn piece implements ChessPice class and BoardSize class, the Pawn should
@@ -34,6 +36,7 @@ public class Pawn implements ChessPiece, BoardSize {
 
     /**
      * The copy constructor use for copy original Pawn
+     *
      * @param original original Pawn object
      */
     public Pawn(Pawn original) {
@@ -59,20 +62,14 @@ public class Pawn implements ChessPiece, BoardSize {
 
     public void setRow(int row) throws IllegalArgumentException {
         if (row < MIN_ROW || row > MAX_ROW) {
-            /*
-            should the IllegalArgument say "The row should be greater than -1 and smaller than 8?
-             */
-            throw new IllegalArgumentException("The row should bigger than 0 and smaller than 7!");
+            throw new IllegalArgumentException("The row/column should range from 0 to 7");
         }
         this.row = row;
     }
 
     public void setColumn(int column) throws IllegalArgumentException {
         if (column < MIN_COL || column > MAX_COL) {
-            /*
-            should the IllegalArgument say "The column should be greater than -1 and smaller than 8?
-             */
-            throw new IllegalArgumentException("The column should bigger than 0 and smaller than 7!");
+            throw new IllegalArgumentException("The row/column should range from 0 to 7");
         }
         this.column = column;
     }
@@ -81,12 +78,13 @@ public class Pawn implements ChessPiece, BoardSize {
         this.color = color;
     }
 
-   /**
+    /**
      * Determines if a player's pawn can move to the given spot
+     *
      * @param row the row of the targeted spot
      * @param col the column of the targeted spot
-     * @return true if this pawn can move to the given targeted spot and 
-     *         false if not
+     * @return true if this pawn can move to the given targeted spot and
+     * false if not
      */
     @Override
     public boolean canMove(int row, int col) {
@@ -95,26 +93,27 @@ public class Pawn implements ChessPiece, BoardSize {
             return false;
         }
         // A white pawn can only move one unit upward in row
-        if (this.getColor() == Color.WHITE) {
+        if (getColor() == Color.WHITE) {
             return this.getCol() == col && (row - this.getRow()) == 1;
         } else {
             // A black pawn can only move one unit downward in row
             return this.getCol() == col && (this.getRow() - row) == 1;
         }
-        
+
     }
 
     /**
      * Determines if a player's chess piece can kill an opponents chess piece.
+     *
      * @param piece ChessPiece object opponents chess piece
      * @return true if opponent's piece is a different color and false if not.
      */
     @Override
     public boolean canKill(ChessPiece piece) {
-       if(this.color != piece.getColor() & this.canMove(this.getRow(), this.getCol())
-               == piece.canMove(piece.getRow(), piece.getCol())){
-           return true;
-       }
-       return false;
+        if (this.color != piece.getColor() & this.canMove(this.getRow(), this.getCol())
+                == piece.canMove(piece.getRow(), piece.getCol())) {
+            return true;
+        }
+        return false;
     }
 }
