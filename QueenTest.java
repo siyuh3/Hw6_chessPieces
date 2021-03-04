@@ -3,7 +3,7 @@ import org.junit.Before;
 import static org.junit.Assert.assertEquals;
 
 /**
- * A test that tests the Queen class.
+ * A JUnit test that tests the Queen class.
  */
 public class QueenTest {
     private Queen queen1;
