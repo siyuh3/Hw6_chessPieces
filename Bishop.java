@@ -108,35 +108,35 @@ public class Bishop implements ChessPiece, BoardSize {
      *
      * @param args array
      */
-//    public static void main(String[] args) {
-//        Bishop bishop2 = new Bishop(0, 2, Color.BLACK);
-//        Bishop bishop4 = new Bishop(3, 5, Color.WHITE);
-//        System.out.println(bishop2.canMove(3, 5));
-//        System.out.println(bishop2.canKill(bishop4));
-//
-//
-//        //Tested
-//        Bishop bishop1 = new Bishop(3, 5, Color.WHITE);
-//
-//        System.out.println("TRUE");
-//        // valid
-//        Bishop b1T = new Bishop(2,4,Color.BLACK);
-//        Bishop b2T = new Bishop(2,6,Color.BLACK);
-//        Bishop b3T = new Bishop(4,4,Color.BLACK);
-//        Bishop b4T = new Bishop(4,6,Color.BLACK);
-//        System.out.println(bishop1.canKill(b1T));
-//        System.out.println(bishop1.canKill(b2T));
-//        System.out.println(bishop1.canKill(b3T));
-//        System.out.println(bishop1.canKill(b4T));
-//
-//        System.out.println("\nFALSE");
-//        //invalid
-//        Bishop b5T = new Bishop(3,4,Color.BLACK);
-//        Bishop b6T = new Bishop(7,8,Color.BLACK);
-//        Bishop b7T = bishop1;
-//        System.out.println(bishop1.canKill(b5T));
-//        System.out.println(bishop1.canKill(b6T));
-//        System.out.println(bishop1.canKill(b7T));
-//
-//    }
+    public static void main(String[] args) {
+        Bishop bishop2 = new Bishop(0, 2, Color.BLACK);
+        Bishop bishop4 = new Bishop(3, 5, Color.WHITE);
+        System.out.println(bishop2.canMove(3, 5));
+        System.out.println(bishop2.canKill(bishop4));
+
+
+        //Tested
+        Bishop bishop1 = new Bishop(3, 5, Color.WHITE);
+
+        System.out.println("TRUE");
+        // valid
+        Bishop b1T = new Bishop(2,4,Color.BLACK);
+        Bishop b2T = new Bishop(2,6,Color.BLACK);
+        Bishop b3T = new Bishop(4,4,Color.BLACK);
+        Bishop b4T = new Bishop(4,6,Color.BLACK);
+        System.out.println(bishop1.canKill(b1T));
+        System.out.println(bishop1.canKill(b2T));
+        System.out.println(bishop1.canKill(b3T));
+        System.out.println(bishop1.canKill(b4T));
+
+        System.out.println("\nFALSE");
+        //invalid
+        Bishop b5T = new Bishop(3,4,Color.BLACK);
+        Bishop b6T = new Bishop(7,8,Color.BLACK);
+        Bishop b7T = bishop1;
+        System.out.println(bishop1.canKill(b5T));
+        System.out.println(bishop1.canKill(b6T));
+        System.out.println(bishop1.canKill(b7T));
+
+    }
 }

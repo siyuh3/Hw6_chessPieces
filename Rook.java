@@ -97,19 +97,19 @@ public class Rook implements ChessPiece, BoardSize {
         return false;
     }
 
-//    public static void main(String[] args) {
-//        Rook rook1 = new Rook(4,4,Color.WHITE);
-//
-//        System.out.println("TRUE");
-//        System.out.println(rook1.canKill(new Rook(4,5,Color.BLACK)) + " = True"); //R
-//        System.out.println(rook1.canKill(new Rook(3,4,Color.BLACK)) + " = True"); // down
-//        System.out.println(rook1.canKill(new Rook(4,3, Color.BLACK)) + " = True"); //L
-//        System.out.println(rook1.canKill( new Rook(5, 4, Color.BLACK)) + " = True"); // Up
-//
-//
-//        System.out.println("\nFALSE");
-//        System.out.println(rook1.canKill(new Rook(5,3,Color.BLACK)) + " = False");
-//
-//        }
-//    }
+    public static void main(String[] args) {
+        Rook rook1 = new Rook(4,4,Color.WHITE);
+
+        System.out.println("TRUE");
+        System.out.println(rook1.canKill(new Rook(4,5,Color.BLACK)) + " = True"); //R
+        System.out.println(rook1.canKill(new Rook(3,4,Color.BLACK)) + " = True"); // down
+        System.out.println(rook1.canKill(new Rook(4,3, Color.BLACK)) + " = True"); //L
+        System.out.println(rook1.canKill( new Rook(5, 4, Color.BLACK)) + " = True"); // Up
+
+
+        System.out.println("\nFALSE");
+        System.out.println(rook1.canKill(new Rook(5,3,Color.BLACK)) + " = False");
+
+        }
+    }
 }
