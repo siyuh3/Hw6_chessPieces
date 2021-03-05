@@ -66,20 +66,22 @@ public class Bishop implements ChessPiece, BoardSize {
 
     /**
      * Determines if a player's bishop can move to the given spot
+     *
      * @param row the row of the targeted spot
      * @param col the column of the targeted spot
-     * @return true if this bishop can move to the given targeted spot and 
-     *         false if not
+     * @return true if this bishop can move to the given targeted spot and
+     * false if not
      */
     @Override
     public boolean canMove(int row, int col) {
-    	// Validates the targeted spot
+        // Validates the targeted spot
         if (row < MIN_ROW || row > MAX_ROW || col < MIN_COL || col > MAX_COL) {
             return false;
         }
+        if (row == this.getRow() && col == this.getCol()) return false;
         // As bishop moves diagonally, the slope between the targeted spot and the
         // original spot must be either 1 or -1
-        int slope = (this.getRow() - row)  / (this.getCol() - col);
+        int slope = (col - this.getCol()) / (row - this.getRow());
         return slope == 1 || slope == -1;
     }
 
@@ -91,14 +93,12 @@ public class Bishop implements ChessPiece, BoardSize {
      */
     @Override
     public boolean canKill(ChessPiece piece) {
-        if (this.color != piece.getColor() && this.canMove(piece.getRow(), piece.getCol())) {
-            return true;
-        }
-        return false;
+        return this.color != piece.getColor() && this.canMove(piece.getRow(), piece.getCol());
     }
 
     /**
      * main method to try some case
+     *
      * @param args array
      */
     public static void main(String[] args) {
