@@ -117,12 +117,12 @@ public class Pawn implements ChessPiece, BoardSize {
         return false;
     }
 
-//    public static void main(String[] args) {
-//        Pawn p1 = new Pawn(1,0, Color.WHITE);
-//        Pawn p2 = new Pawn(2,1,Color.BLACK);
-//        Pawn p3 = new Pawn(4,4,Color.BLACK);
-//
-//        System.out.println(p1.canKill(p2)); // true
-//        System.out.println(p1.canKill(p3)); // false
+    public static void main(String[] args) {
+        Pawn p1 = new Pawn(1,0, Color.WHITE);
+        Pawn p2 = new Pawn(2,1,Color.BLACK);
+        Pawn p3 = new Pawn(4,4,Color.BLACK);
+
+        System.out.println(p1.canKill(p2)); // true
+        System.out.println(p1.canKill(p3)); // false
     }
 }
