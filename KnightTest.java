@@ -1,6 +1,7 @@
 import org.junit.Test;
 import org.junit.Before;
-import static org.junit.Assert.assertEquals;
+
+import static org.junit.Assert.*;
 
 /**
  * A JUnit test that tests the Knight class.
@@ -11,7 +12,8 @@ public class KnightTest {
 
     @Before
     public void setUp(){
-        knight1 = new Knight(0,1,Color.BLACK);
+        knight1 = new Knight(0,1, Color.BLACK);
+        knight2 = new Knight(7, 6, Color.WHITE);
     }
 
     /**
@@ -20,6 +22,7 @@ public class KnightTest {
     @Test
     public void getRowTest(){
         assertEquals(0, knight1.getRow());
+        assertEquals(7, knight2.getRow());
     }
 
     /**
@@ -28,6 +31,7 @@ public class KnightTest {
     @Test
     public void getColTest(){
         assertEquals(1, knight1.getCol());
+        assertEquals(6, knight2.getCol());
     }
 
     /**
@@ -36,6 +40,7 @@ public class KnightTest {
     @Test
     public void getColor(){
         assertEquals(Color.BLACK, knight1.getColor());
+        assertEquals(Color.WHITE, knight2.getColor());
     }
 
     /**
@@ -43,7 +48,8 @@ public class KnightTest {
      */
     @Test
     public void testCanMove(){
-        knight1.canMove(0,1);
+        assertFalse(knight1.canMove(0,1));
+//        assertTrue(knight1.canMove(0,2));  // This is supposed to be true.
     }
 
     /**
@@ -51,8 +57,8 @@ public class KnightTest {
      */
     @Test
     public void testCanKill(){
-        knight2 = new Knight(7, 1, Color.WHITE);
-        knight1.canKill(knight2);
+        Knight knight3 = new Knight(7, 1, Color.WHITE);
+        knight1.canKill(knight3);
+        // assertFalse
     }
 }
-
