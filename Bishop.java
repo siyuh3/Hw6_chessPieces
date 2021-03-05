@@ -1,10 +1,8 @@
-package P1;
-
 /**
  * @program: Hw6_chessPieces
  * @description: This Class is Bishop class implements the ChessPiece Class, the Bishop should move
  * diagonally, init position is (0, 2) and (0, 5)
- * @author: Siyu Hou
+ * @author: Siyu Hou, Kicho Yu
  * @create: 2021-02-26 02:40
  **/
 public class Bishop implements ChessPiece, BoardSize {
