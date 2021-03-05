@@ -81,6 +81,7 @@ public class Queen implements ChessPiece, BoardSize {
         // it moves vertically or horizontally, or be square root of two if diagonally
         double distance = Math.sqrt(Math.pow(this.getRow() - row, 2) + Math.pow(this.getCol() - col, 2));
         return distance % Math.sqrt(2) == 0 || distance % 1 == 0;
+    }
 
     /**
      * Determines if a player's chess piece can kill an opponents chess piece.
