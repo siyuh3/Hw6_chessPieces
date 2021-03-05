@@ -105,5 +105,7 @@ public class Queen implements ChessPiece, BoardSize {
         return false;
     }
 
+    public static void main(String[] args) {
+
     }
 }
