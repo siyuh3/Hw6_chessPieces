@@ -76,6 +76,8 @@ public class Rook implements ChessPiece, BoardSize {
         if (row < MIN_ROW || row > MAX_ROW || col < MIN_COL || col > MAX_COL) {
             return false;
         }
+        // Can't move to original spot
+        if (this.getRow() == row && this.getCol() == col) return false;
         // As a rook can move horizontally or vertically
         return (this.getRow() == row) || (this.getCol() == col);
     }
