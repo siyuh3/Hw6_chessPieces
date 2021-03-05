@@ -103,4 +103,34 @@ public class Knight implements ChessPiece, BoardSize {
         }
         return false;
     }
+
+//    public static void main(String[] args) {
+//        Knight knight1 = new Knight(4,4,Color.WHITE);
+//
+//        //valid
+//        Knight valid1 = new Knight(2,3,Color.BLACK);
+//        Knight valid2 = new Knight(2,5, Color.BLACK);
+//        Knight valid3 = new Knight(3,2,Color.BLACK);
+//        Knight valid4 = new Knight(3,6,Color.BLACK);
+//        Knight valid5 = new Knight(5,2,Color.BLACK);
+//        Knight valid6 = new Knight(5,6,Color.BLACK);
+//        Knight valid7 = new Knight(6,3, Color.BLACK);
+//        Knight valid8 = new Knight(6,5, Color.BLACK);
+//
+//        System.out.println(knight1.canKill(valid1));
+//        System.out.println(knight1.canKill(valid2));
+//        System.out.println(knight1.canKill(valid3));
+//        System.out.println(knight1.canKill(valid4));
+//        System.out.println(knight1.canKill(valid5));
+//        System.out.println(knight1.canKill(valid6));
+//        System.out.println(knight1.canKill(valid7));
+//        System.out.println(knight1.canKill(valid8));
+//
+//        //not valid
+//        Knight fail1 = new Knight(1,1, Color.BLACK);
+//        Knight fail2 = new Knight(1,0, Color.BLACK);
+//        System.out.println(knight1.canKill(fail1));
+//        System.out.println(knight1.canKill(fail2));
+//
+//    }
 }
