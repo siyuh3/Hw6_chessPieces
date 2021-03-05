@@ -62,10 +62,11 @@ public class Queen implements ChessPiece, BoardSize {
 
     /**
      * Determines if a player's queen can move to the given spot
+     *
      * @param row the row of the targeted spot
      * @param col the column of the targeted spot
-     * @return true if this queen can move to the given targeted spot and 
-     *         false if not
+     * @return true if this queen can move to the given targeted spot and
+     * false if not
      */
     @Override
     public boolean canMove(int row, int col) {
@@ -73,15 +74,16 @@ public class Queen implements ChessPiece, BoardSize {
         if (row < MIN_ROW || row > MAX_ROW || col < MIN_COL || col > MAX_COL) {
             return false;
         }
-        // Can't move to the original spot
-        if (this.getRow() == row && this.getCol() == col) return false;
+        if (row == this.row && col == this.column) return false;
 
-        // As a queen can move horizontally, vertically, and diagonally. The slope between
-        // the targeted and original spot is either 1 or -1, if move diagonally. If move
-        // horizontally, the column must remain unchanged. If move vertically, the row
-        // must remain unchanged.
-        int slope = (this.getRow() - row)  / (this.getCol() - col);
-        return (slope == 1 || slope == -1) || (this.getRow() == row) || (this.getCol() == col);
+        // Slope formula (y2-y1)/(x2-x1);
+        // move diagonally means slope = +-1, move horizontally or vertically means
+        // slope = 0;
+        int newCol = Math.abs(col - this.getCol());
+        int newRow = Math.abs(row - this.getRow());
+        double slope;
+        slope = (float) newCol / newRow;
+        return slope == 1 || slope == 0;
     }
 
     /**
@@ -92,10 +94,6 @@ public class Queen implements ChessPiece, BoardSize {
      */
     @Override
     public boolean canKill(ChessPiece piece) {
-        if (this.color != piece.getColor() & this.canMove(this.getRow(), this.getCol())
-                == piece.canMove(piece.getRow(), piece.getCol())) {
-            return true;
-        }
-        return false;
+        return this.color != piece.getColor() && this.canMove(piece.getRow(), piece.getCol());
     }
 }
