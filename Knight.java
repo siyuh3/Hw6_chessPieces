@@ -1,5 +1,3 @@
-package P1;
-
 /**
  * @program: Hw6_chessPieces
  * @description:
