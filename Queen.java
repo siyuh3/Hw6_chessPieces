@@ -79,11 +79,8 @@ public class Queen implements ChessPiece, BoardSize {
         // Slope formula (y2-y1)/(x2-x1);
         // move diagonally means slope = +-1, move horizontally or vertically means
         // slope = 0;
-        int newCol = Math.abs(col - this.getCol());
-        int newRow = Math.abs(row - this.getRow());
-        double slope;
-        slope = (float) newCol / newRow;
-        return slope == 1 || slope == 0;
+        int slope = (col - this.getCol()) / (row - this.getRow());
+        return (slope == 1 || slope == -1) || (this.getRow() == row) || (this.getCol() == col);
     }
 
     /**
