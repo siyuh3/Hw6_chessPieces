@@ -95,6 +95,12 @@ public class Knight implements ChessPiece, BoardSize {
      */
     @Override
     public boolean canKill(ChessPiece piece) {
-        return this.color != piece.getColor() && this.canMove(piece.getRow(), piece.getCol());
+        if (this.color != piece.getColor()) {
+            double slope = Math.abs((piece.getCol() - this.getCol()) / (double) (piece.getRow() - this.getRow()));
+            if (slope == 2 || slope == 0.5) {
+                return true;
+            }
+        }
+        return false;
     }
 }
