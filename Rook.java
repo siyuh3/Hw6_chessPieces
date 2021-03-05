@@ -88,6 +88,12 @@ public class Rook implements ChessPiece, BoardSize {
      */
     @Override
     public boolean canKill(ChessPiece piece) {
-        return this.color != piece.getColor() && this.canMove(piece.getRow(), piece.getCol());
+        if (this.color != piece.getColor()) {
+            double slope = ((piece.getCol() - this.getCol()) / (double) (piece.getRow() - this.getRow()));
+            if (Math.abs(slope) == 0 || this.getRow() == piece.getRow()) {
+                return true;
+            }
+        }
+        return false;
     }
 }
