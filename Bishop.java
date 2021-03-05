@@ -74,14 +74,14 @@ public class Bishop implements ChessPiece, BoardSize {
      */
     @Override
     public boolean canMove(int row, int col) {
-    	// Validates the targeted spot
         if (row < MIN_ROW || row > MAX_ROW || col < MIN_COL || col > MAX_COL) {
             return false;
         }
-        // As bishop moves diagonally, the distance between the targeted spot and the
-        // original spot must be the multiple of square root of two
-        double distance = Math.sqrt(Math.pow(this.getRow() - row, 2) + Math.pow(this.getCol() - col, 2));
-        return distance % Math.sqrt(2) == 0;
+        if (row == this.row && col == this.column) return false;
+        int newRow =  Math.abs(row- getRow());
+        int newCol = Math.abs(col - getCol());
+        return newRow == newCol;
+
     }
 
     /**
@@ -92,16 +92,20 @@ public class Bishop implements ChessPiece, BoardSize {
      */
     @Override
     public boolean canKill(ChessPiece piece) {
-        if (this.color != piece.getColor() && this.canMove(this.getRow(), this.getCol())
-                == piece.canMove(piece.getRow(), piece.getCol())) {
+        if (this.color != piece.getColor() && this.canMove(piece.getRow(), piece.getCol())) {
             return true;
         }
         return false;
     }
 
+    /**
+     * main method to try some case
+     * @param args array
+     */
     public static void main(String[] args) {
-        Bishop bishop2 = new Bishop(0, 5, Color.BLACK);
-        Bishop bishop4 = new Bishop(2, 5, Color.WHITE);
+        Bishop bishop2 = new Bishop(0, 2, Color.BLACK);
+        Bishop bishop4 = new Bishop(3, 5, Color.WHITE);
+        System.out.println(bishop2.canMove(3, 5));
         System.out.println(bishop2.canKill(bishop4));
     }
 }
