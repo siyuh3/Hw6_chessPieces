@@ -60,7 +60,11 @@ public class PawnTest {
     public void canKill() {
         Pawn pawn3 = new Pawn(2, 0, Color.BLACK);
         Pawn pawn4 = new Pawn(7, 0, Color.WHITE);
-        assertTrue(pawn1.canKill(pawn3));
+        Pawn pawn5 = new Pawn(2,0,Color.BLACK);
+        Pawn pawn6 = new Pawn(2, 1, Color.BLACK);
+        assertFalse(pawn1.canKill(pawn3));
         assertFalse(pawn2.canKill(pawn4));
+        assertFalse(pawn1.canKill(pawn5));
+        assertTrue(pawn1.canKill(pawn6));
     }
 }
