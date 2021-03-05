@@ -62,11 +62,10 @@ public class Queen implements ChessPiece, BoardSize {
 
     /**
      * Determines if a player's queen can move to the given spot
-     *
      * @param row the row of the targeted spot
      * @param col the column of the targeted spot
-     * @return true if this queen can move to the given targeted spot and
-     * false if not
+     * @return true if this queen can move to the given targeted spot and 
+     *         false if not
      */
     @Override
     public boolean canMove(int row, int col) {
@@ -74,13 +73,15 @@ public class Queen implements ChessPiece, BoardSize {
         if (row < MIN_ROW || row > MAX_ROW || col < MIN_COL || col > MAX_COL) {
             return false;
         }
+        // Can't move to the original spot
+        if (this.getRow() == row && this.getCol() == col) return false;
 
-        // As a queen can move horizontally, vertically, and diagonally, the distance between
-        // the targeted spot and the original spot must be the multiple of one, if move vertically
-        // or horizontally, or must be the multiple of square root of two, if move diagonally
-        // it moves vertically or horizontally, or be square root of two if diagonally
-        double distance = Math.sqrt(Math.pow(this.getRow() - row, 2) + Math.pow(this.getCol() - col, 2));
-        return distance % Math.sqrt(2) == 0 || distance % 1 == 0;
+        // As a queen can move horizontally, vertically, and diagonally. The slope between
+        // the targeted and original spot is either 1 or -1, if move diagonally. If move
+        // horizontally, the column must remain unchanged. If move vertically, the row
+        // must remain unchanged.
+        int slope = (this.getRow() - row)  / (this.getCol() - col);
+        return (slope == 1 || slope == -1) || (this.getRow() == row) || (this.getCol() == col);
     }
 
     /**
