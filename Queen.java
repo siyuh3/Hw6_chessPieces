@@ -80,6 +80,11 @@ public class Queen implements ChessPiece, BoardSize {
         // move diagonally means slope = +-1, move horizontally or vertically means
         // slope = 0;
         int slope = (col - this.getCol()) / (row - this.getRow());
+
+        //check div by zero error
+        //Queen queen1 = new Queen(3,5, Color.WHITE);
+        //System.out.println(queen1.canMove(3,4));
+        // this is for if queen moves right or left. up or down works.
         return (slope == 1 || slope == -1) || (slope == 0);
     }
 
@@ -91,6 +96,14 @@ public class Queen implements ChessPiece, BoardSize {
      */
     @Override
     public boolean canKill(ChessPiece piece) {
-        return this.color != piece.getColor() && this.canMove(piece.getRow(), piece.getCol());
+        if (this.color != piece.getColor()) {
+            double slope = ((piece.getCol() - this.getCol()) / (double) (piece.getRow() - this.getRow()));
+            if (slope == -1.0 || slope == 1.0 || Math.abs(slope) == 0 || this.row == piece.getRow()) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     }
 }
