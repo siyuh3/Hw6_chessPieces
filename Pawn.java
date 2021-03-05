@@ -1,5 +1,3 @@
-package P1;
-
 /**
  * @program: Hw6_chessPieces
  * @description: This class represent the Pawn piece implements ChessPice class and BoardSize class, the Pawn should
