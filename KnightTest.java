@@ -49,7 +49,9 @@ public class KnightTest {
     @Test
     public void testCanMove(){
         assertFalse(knight1.canMove(0,1));
-//        assertTrue(knight1.canMove(0,2));  // This is supposed to be true.
+        assertTrue(knight1.canMove(2, 2));
+        assertTrue(knight1.canMove(1, 3));
+        assertFalse(knight1.canMove(3, 2));
     }
 
     /**
@@ -57,8 +59,10 @@ public class KnightTest {
      */
     @Test
     public void testCanKill(){
-        Knight knight3 = new Knight(7, 1, Color.WHITE);
-        knight1.canKill(knight3);
-        // assertFalse
+        Knight knight3 = new Knight(1, 3, Color.WHITE);
+        Knight knight4 = new Knight(3, 2, Color.WHITE);
+        Knight knight5 = new Knight(5, 7, Color.WHITE);
+        assertTrue(knight1.canKill(knight3));
+        assertFalse(knight1.canKill(knight4));
     }
 }
