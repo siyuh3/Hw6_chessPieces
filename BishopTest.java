@@ -50,6 +50,8 @@ public class BishopTest {
      */
     @Test
     public void testCanMove() {
+        assertFalse(bishop1.canMove(0, 2));
+        assertTrue(bishop1.canMove(3, 5));
         assertTrue(bishop1.canMove(1, 3));
         assertFalse(bishop2.canMove(2,5));
     }
