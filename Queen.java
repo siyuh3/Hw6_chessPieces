@@ -80,7 +80,7 @@ public class Queen implements ChessPiece, BoardSize {
         // move diagonally means slope = +-1, move horizontally or vertically means
         // slope = 0;
         int slope = (col - this.getCol()) / (row - this.getRow());
-        return (slope == 1 || slope == -1) || (this.getRow() == row) || (this.getCol() == col);
+        return (slope == 1 || slope == -1) || (slope == 0);
     }
 
     /**
