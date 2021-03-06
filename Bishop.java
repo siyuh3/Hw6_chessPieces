@@ -17,7 +17,7 @@ public class Bishop implements ChessPiece, BoardSize {
     }
 
     public Bishop() {
-        setRow(0);
+        setRow(7);
         setColumn(2);
         setColor(Color.WHITE);
     }
