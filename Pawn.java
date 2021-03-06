@@ -15,8 +15,8 @@ public class Pawn implements ChessPiece, BoardSize {
      */
     public Pawn() {
         setRow(0);
-        setColumn(0);
-        setColor(null);
+        setColumn(6);
+        setColor(Color.WHITE);
     }
 
     /**
@@ -109,8 +109,8 @@ public class Pawn implements ChessPiece, BoardSize {
     @Override
     public boolean canKill(ChessPiece piece) {
         if (this.color != piece.getColor()) {
-            double slope = ((piece.getCol() - this.getCol()) / (double) (piece.getRow() - this.getRow()));
-            if (slope == -1.0 || slope == 1.0) {
+            int slope = ((piece.getCol() - this.getCol()) /  (piece.getRow() - this.getRow()));
+            if (slope == -1 || slope == 1) {
                 return true;
             }
         }
