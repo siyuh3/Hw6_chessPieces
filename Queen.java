@@ -106,8 +106,9 @@ public class Queen implements ChessPiece, BoardSize {
      */
     @Override
     public boolean canKill(ChessPiece piece) {
-        // First step: determine whether two pieces are same color, if they are not in same color,
-        // return false, if they are not in same color, return true
+        // First step: determine whether two pieces are same color.
+        // If they are in same color, return false.
+        // If they are not in same color, return true.
         // Second step: When we invoke canKill, it means we check -->
         // Can Piece1 move to Piece2, if "yes" canKill true, if "no" canKill false,
         // SO JUST INVOKE canMove WILL SATISFY OUR NEEDED
@@ -123,15 +124,17 @@ public class Queen implements ChessPiece, BoardSize {
 
         Queen queen1 = new Queen(2,2, Color.WHITE);
 
+        System.out.println("\nTRUE");
         System.out.println(queen1.canKill(new Queen(1,1, Color.BLACK)) + " = True");
         System.out.println(queen1.canKill(new Queen(1,2, Color.BLACK)) + " = True");
         System.out.println(queen1.canKill(new Queen(1,3, Color.BLACK)) + " = True");
-        System.out.println(queen1.canKill(new Queen(2,1,Color.BLACK)) + " = True");
-        System.out.println(queen1.canKill(new Queen(2,3,Color.BLACK)) + " = True");
+        System.out.println(queen1.canKill(new Queen(2,1, Color.BLACK)) + " = True");
+        System.out.println(queen1.canKill(new Queen(2,3, Color.BLACK)) + " = True");
         System.out.println(queen1.canKill(new Queen(3,1, Color.BLACK)) + " = True");
         System.out.println(queen1.canKill(new Queen(3,2, Color.BLACK)) + " = True");
         System.out.println(queen1.canKill(new Queen(3,3, Color.BLACK)) + " = True");
 
+        System.out.println("\nFALSE");
         System.out.println(queen1.canKill(new Queen(0,1, Color.BLACK)) + " = False");
         System.out.println(queen1.canKill(new Queen(0,3, Color.BLACK)) + " = False");
         System.out.println(queen1.canKill(new Queen(1,0, Color.BLACK)) + " = False");
