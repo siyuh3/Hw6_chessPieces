@@ -116,10 +116,27 @@ public class Queen implements ChessPiece, BoardSize {
     }
 
     public static void main(String[] args) {
-        // No div by zero error
-        Queen queen1 = new Queen(3,5, Color.WHITE);
-        System.out.println(queen1.canMove(3,4));  // true, horizontal move
-        System.out.println(queen1.canMove(4,5));  // true, vertical move
-        System.out.println(queen1.canMove(3,5));  // false, same spot
+        Queen queen2 = new Queen(3,5, Color.WHITE);
+        System.out.println(queen2.canMove(3,4));  // true, horizontal move
+        System.out.println(queen2.canMove(4,5));  // true, vertical move
+        System.out.println(queen2.canMove(3,5));  // false, same spot
+
+        Queen queen1 = new Queen(2,2, Color.WHITE);
+
+        System.out.println(queen1.canKill(new Queen(1,1, Color.BLACK)) + " = True");
+        System.out.println(queen1.canKill(new Queen(1,2, Color.BLACK)) + " = True");
+        System.out.println(queen1.canKill(new Queen(1,3, Color.BLACK)) + " = True");
+        System.out.println(queen1.canKill(new Queen(2,1,Color.BLACK)) + " = True");
+        System.out.println(queen1.canKill(new Queen(2,3,Color.BLACK)) + " = True");
+        System.out.println(queen1.canKill(new Queen(3,1, Color.BLACK)) + " = True");
+        System.out.println(queen1.canKill(new Queen(3,2, Color.BLACK)) + " = True");
+        System.out.println(queen1.canKill(new Queen(3,3, Color.BLACK)) + " = True");
+
+        System.out.println(queen1.canKill(new Queen(0,1, Color.BLACK)) + " = False");
+        System.out.println(queen1.canKill(new Queen(0,3, Color.BLACK)) + " = False");
+        System.out.println(queen1.canKill(new Queen(1,0, Color.BLACK)) + " = False");
+        System.out.println(queen1.canKill(new Queen(1,4, Color.BLACK)) + " = False");
+        System.out.println(queen1.canKill(new Queen(3,4, Color.BLACK)) + " = False");
+        System.out.println(queen1.canKill(new Queen(4,3, Color.BLACK)) + " = False");
     }
 }
