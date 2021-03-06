@@ -42,21 +42,38 @@ public class Rook implements ChessPiece, BoardSize {
         setColumn(original.getCol());
     }
 
+    /**
+     * getRow method
+     * @return returns the Rook's current row.
+     */
     @Override
     public int getRow() {
         return this.row;
     }
 
+    /**
+     * getCol method.
+     * @return returns the Rook's current column.
+     */
     @Override
     public int getCol() {
         return this.column;
     }
 
+    /**
+     * getColor method.
+     * @return returns the Rook's color - either white or black.
+     */
     @Override
     public Color getColor() {
         return color;
     }
 
+    /**
+     * setRow method for changing the object's row.
+     * @param row changes the object's row with a new row.
+     * @throws IllegalArgumentException an error arises when a proposed value is outside the chess board's boundaries.
+     */
     public void setRow(int row) throws IllegalArgumentException {
         if (row < MIN_ROW || row > MAX_ROW) {
             throw new IllegalArgumentException("The row/column should range from 0 to 7");
@@ -64,6 +81,11 @@ public class Rook implements ChessPiece, BoardSize {
         this.row = row;
     }
 
+    /**
+     * setCol method for changing the object's column.
+     * @param column changes the object's column with a new column.
+     * @throws IllegalArgumentException an error arises when a value is outside the chess board's boundaries.
+     */
     public void setColumn(int column) throws IllegalArgumentException {
         if (column < MIN_COL || column > MAX_COL) {
             throw new IllegalArgumentException("The row/column should range from 0 to 7");
@@ -71,12 +93,16 @@ public class Rook implements ChessPiece, BoardSize {
         this.column = column;
     }
 
+    /**
+     * setter method for changing the color of the chess piece.
+     * @param color changes the color of the chess piece.
+     */
     public void setColor(Color color) {
         this.color = color;
     }
 
     /**
-     * Determines if a player's rook can move to the given spot
+     * Determines if a player's rook can move to the given spot.
      *
      * @param row the row of the targeted spot
      * @param col the column of the targeted spot
@@ -115,16 +141,14 @@ public class Rook implements ChessPiece, BoardSize {
         return this.color != piece.getColor() && this.canMove(piece.getRow(), piece.getCol());
     }
 
+
     public static void main(String[] args) {
         Rook rook1 = new Rook(4,4,Color.WHITE);
-
         System.out.println("TRUE");
         System.out.println(rook1.canKill(new Rook(4,5,Color.BLACK)) + " = True"); //R
         System.out.println(rook1.canKill(new Rook(3,4,Color.BLACK)) + " = True"); // down
         System.out.println(rook1.canKill(new Rook(4,3, Color.BLACK)) + " = True"); //L
         System.out.println(rook1.canKill( new Rook(5, 4, Color.BLACK)) + " = True"); // Up
-
-
         System.out.println("\nFALSE");
         System.out.println(rook1.canKill(new Rook(5,3,Color.BLACK)) + " = False");
     }
