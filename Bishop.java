@@ -18,8 +18,8 @@ public class Bishop implements ChessPiece, BoardSize {
 
     public Bishop() {
         setRow(0);
-        setColumn(0);
-        setColor(null);
+        setColumn(2);
+        setColor(Color.WHITE);
     }
 
     public Bishop(Bishop original) throws IllegalArgumentException {
