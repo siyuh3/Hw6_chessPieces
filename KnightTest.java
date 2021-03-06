@@ -12,8 +12,8 @@ public class KnightTest {
 
     @Before
     public void setUp(){
-        knight1 = new Knight(0,1, Color.BLACK);
-        knight2 = new Knight(7, 6, Color.WHITE);
+        knight1 = new Knight(0,1, Color.WHITE);
+        knight2 = new Knight(7, 6, Color.BLACK);
     }
 
     /**
@@ -39,8 +39,8 @@ public class KnightTest {
      */
     @Test
     public void getColor(){
-        assertEquals(Color.BLACK, knight1.getColor());
-        assertEquals(Color.WHITE, knight2.getColor());
+        assertEquals(Color.WHITE, knight1.getColor());
+        assertEquals(Color.BLACK, knight2.getColor());
     }
 
     /**
@@ -59,9 +59,9 @@ public class KnightTest {
      */
     @Test
     public void testCanKill(){
-        Knight knight3 = new Knight(1, 3, Color.WHITE);
-        Knight knight4 = new Knight(3, 2, Color.WHITE);
-        Knight knight5 = new Knight(5, 7, Color.WHITE);
+        Knight knight3 = new Knight(1, 3, Color.BLACK);
+        Knight knight4 = new Knight(3, 2, Color.BLACK);
+        Knight knight5 = new Knight(5, 7, Color.BLACK);
         assertTrue(knight1.canKill(knight3));
         assertFalse(knight1.canKill(knight4));
     }
