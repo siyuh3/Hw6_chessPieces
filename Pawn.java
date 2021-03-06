@@ -11,15 +11,6 @@ public class Pawn implements ChessPiece, BoardSize {
     private Color color;
 
     /**
-     * Construct a default Row, Column and Color
-     */
-    public Pawn() {
-        setRow(0);
-        setColumn(6);
-        setColor(Color.WHITE);
-    }
-
-    /**
      * Main Constructor that construct Pawn object
      *
      * @param row    pawn in which row
@@ -30,6 +21,15 @@ public class Pawn implements ChessPiece, BoardSize {
         setRow(row);
         setColumn(column);
         setColor(color);
+    }
+
+    /**
+     * Construct a default Row, Column and Color
+     */
+    public Pawn() {
+        setRow(0);
+        setColumn(6);
+        setColor(Color.WHITE);
     }
 
     /**

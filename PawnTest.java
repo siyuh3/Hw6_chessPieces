@@ -1,8 +1,6 @@
 import org.junit.Test;
 import org.junit.Before;
 
-import java.awt.Color;
-
 import static org.junit.Assert.*;
 
 /**
@@ -17,7 +15,7 @@ public class PawnTest {
     public void setUp() {
         pawn1 = new Pawn(1, 0, Color.BLACK);
         pawn2 = new Pawn(6, 0, Color.WHITE);
-        pawn3 = new Pawn(1,1, Color.WHITE);
+        pawn3 = new Pawn(1, 1, Color.WHITE);
     }
 
     /**
