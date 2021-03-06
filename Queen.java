@@ -106,13 +106,13 @@ public class Queen implements ChessPiece, BoardSize {
      */
     @Override
     public boolean canKill(ChessPiece piece) {
-        if (this.color != piece.getColor()) {
-            double slope = ((piece.getCol() - this.getCol()) / (double) (piece.getRow() - this.getRow()));
-            if (slope == -1.0 || slope == 1.0 || Math.abs(slope) == 0 || this.row == piece.getRow()) {
-                return true;
-            }
-        }
-        return false;
+        // First step: determine whether two pieces are same color, if they are not in same color,
+        // return false, if they are not in same color, return true
+        // Second step: When we invoke canKill, it means we check -->
+        // Can Piece1 move to Piece2, if "yes" canKill true, if "no" canKill false,
+        // SO JUST INVOKE canMove WILL SATISFY OUR NEEDED
+        // DON'T COPY CODE FROM canMove
+        return this.color != piece.getColor() && this.canMove(piece.getRow(), piece.getCol());
     }
 
     public static void main(String[] args) {
