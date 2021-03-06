@@ -1,6 +1,8 @@
 import org.junit.Test;
 import org.junit.Before;
 
+import java.awt.Color;
+
 import static org.junit.Assert.*;
 
 /**
@@ -9,11 +11,13 @@ import static org.junit.Assert.*;
 public class PawnTest {
     private Pawn pawn1;
     private Pawn pawn2;
+    private Pawn pawn3;
 
     @Before
     public void setUp() {
         pawn1 = new Pawn(1, 0, Color.BLACK);
         pawn2 = new Pawn(6, 0, Color.WHITE);
+        pawn3 = new Pawn(1,1, Color.WHITE);
     }
 
     /**
@@ -58,13 +62,15 @@ public class PawnTest {
      */
     @Test
     public void canKill() {
-        Pawn pawn3 = new Pawn(2, 0, Color.WHITE);
-        Pawn pawn4 = new Pawn(7, 0, Color.BLACK);
-        Pawn pawn5 = new Pawn(2,0,Color.WHITE);
-        Pawn pawn6 = new Pawn(2, 1, Color.WHITE);
-        assertTrue(pawn1.canKill(pawn3));
-        assertFalse(pawn2.canKill(pawn4));
-        assertTrue(pawn1.canKill(pawn5));
-        assertFalse(pawn1.canKill(pawn6));
+        // True
+        assertTrue(pawn3.canKill(new Pawn(2,0,Color.BLACK)));
+        assertTrue(pawn3.canKill(new Pawn(2,2,Color.BLACK)));
+        // False
+        assertFalse(pawn3.canKill(new Pawn(0,1,Color.BLACK)));
+        assertFalse(pawn3.canKill(new Pawn(0,2,Color.BLACK)));
+        assertFalse(pawn3.canKill(new Pawn(1,0,Color.BLACK)));
+        assertFalse(pawn3.canKill(new Pawn(1,2,Color.BLACK)));
+        assertFalse(pawn3.canKill(new Pawn(2,1,Color.BLACK)));
+        assertFalse(pawn3.canKill(new Pawn(3,3,Color.BLACK)));
     }
 }
