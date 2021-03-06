@@ -17,8 +17,8 @@ public class Rook implements ChessPiece, BoardSize {
 
     public Rook() {
         setRow(0);
-        setColumn(0);
-        setColor(null);
+        setColumn(7);
+        setColor(Color.WHITE);
     }
 
     public Rook(Rook original) {
@@ -110,6 +110,5 @@ public class Rook implements ChessPiece, BoardSize {
         System.out.println("\nFALSE");
         System.out.println(rook1.canKill(new Rook(5,3,Color.BLACK)) + " = False");
 
-        }
     }
 }
