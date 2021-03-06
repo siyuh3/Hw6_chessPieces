@@ -15,7 +15,7 @@ public class PawnTest {
     public void setUp() {
         pawn1 = new Pawn(1, 0, Color.BLACK);
         pawn2 = new Pawn(6, 0, Color.WHITE);
-        pawn3 = new Pawn(1, 1, Color.WHITE);
+        pawn3 = new Pawn(6, 5, Color.WHITE);
     }
 
     /**
@@ -51,8 +51,22 @@ public class PawnTest {
      */
     @Test
     public void canMoveTest() {
+        // True
         assertTrue(pawn1.canMove(2, 0));
-        assertFalse(pawn2.canMove(7, 1));
+        assertTrue(pawn2.canMove(5, 0));
+
+        // False
+        assertFalse(pawn1.canMove(1, 0));  // Same spot
+        assertFalse(pawn1.canMove(1, 0));  // Backward
+        assertFalse(pawn1.canMove(1, 1));  // Same row
+        assertFalse(pawn1.canMove(2, 1));  // Different column
+        assertFalse(pawn1.canMove(3, 0));  // More than 2 rows apart
+
+        assertFalse(pawn2.canMove(6, 0));  // Same spot
+        assertFalse(pawn2.canMove(7, 0));  // Backward
+        assertFalse(pawn2.canMove(6, 1));  // Same row
+        assertFalse(pawn2.canMove(5, 1));  // Different column
+        assertFalse(pawn2.canMove(4, 0));  // More than 2 rows apart
     }
 
     /**
@@ -60,30 +74,16 @@ public class PawnTest {
      */
     @Test
     public void canKill() {
-        assertTrue(pawn1.canKill(new Pawn(2, 0, Color.WHITE)));
-        assertTrue(pawn1.canKill(new Pawn(2, 2, Color.WHITE)));
-
-        assertFalse(pawn1.canKill(new Pawn(2, 1, Color.WHITE)));  // Same column
-        assertFalse(pawn1.canKill(new Pawn(0, 1, Color.WHITE)));  // Same column
-        assertFalse(pawn1.canKill(new Pawn(1, 0, Color.WHITE)));  // Same row
-        assertFalse(pawn1.canKill(new Pawn(1, 2, Color.WHITE)));  // Same row
-        assertFalse(pawn1.canKill(new Pawn(0, 2, Color.WHITE)));  // Backward
-        assertFalse(pawn1.canKill(new Pawn(3, 2, Color.WHITE)));  // More than 2 rows apart
-        assertFalse(pawn1.canKill(new Pawn(2, 3, Color.WHITE)));  // More than 2 columns apart
-        assertFalse(pawn1.canKill(new Pawn(2, 0, Color.BLACK)));  // Same color
-
-
-        assertTrue(pawn4.canKill(new Pawn(5, 0, Color.BLACK)));
-        assertTrue(pawn4.canKill(new Pawn(5, 2, Color.BLACK)));
-
-        assertFalse(pawn4.canKill(new Pawn(5, 1, Color.BLACK)));  // Same column
-        assertFalse(pawn4.canKill(new Pawn(7, 1, Color.BLACK)));  // Same column
-        assertFalse(pawn4.canKill(new Pawn(6, 0, Color.BLACK)));  // Same row
-        assertFalse(pawn4.canKill(new Pawn(6, 2, Color.BLACK)));  // Same row
-        assertFalse(pawn4.canKill(new Pawn(7, 2, Color.BLACK)));  // Backward
-        assertFalse(pawn4.canKill(new Pawn(4, 2, Color.BLACK)));  // More than 2 rows apart
-        assertFalse(pawn4.canKill(new Pawn(5, 3, Color.BLACK)));  // More than 2 columns apart
-        assertFalse(pawn4.canKill(new Pawn(5, 0, Color.WHITE)));  // Same color
-
+        // Let's double check below. Feel free to delete and recreate an example.
+        // True
+//        assertTrue(pawn3.canKill(new Pawn(5,4,Color.BLACK)));
+//        assertTrue(pawn3.canKill(new Pawn(5,6,Color.BLACK)));
+//        // False
+//        assertFalse(pawn3.canKill(new Pawn(0,1,Color.BLACK)));
+//        assertFalse(pawn3.canKill(new Pawn(0,2,Color.BLACK)));
+//        assertFalse(pawn3.canKill(new Pawn(1,0,Color.BLACK)));
+//        assertFalse(pawn3.canKill(new Pawn(1,2,Color.BLACK)));
+//        assertFalse(pawn3.canKill(new Pawn(2,1,Color.BLACK)));
+//        assertFalse(pawn3.canKill(new Pawn(3,3,Color.BLACK)));
     }
 }
