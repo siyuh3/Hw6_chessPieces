@@ -60,15 +60,30 @@ public class PawnTest {
      */
     @Test
     public void canKill() {
-        // True
-        assertTrue(pawn3.canKill(new Pawn(2,0,Color.BLACK)));
-        assertTrue(pawn3.canKill(new Pawn(2,2,Color.BLACK)));
-        // False
-        assertFalse(pawn3.canKill(new Pawn(0,1,Color.BLACK)));
-        assertFalse(pawn3.canKill(new Pawn(0,2,Color.BLACK)));
-        assertFalse(pawn3.canKill(new Pawn(1,0,Color.BLACK)));
-        assertFalse(pawn3.canKill(new Pawn(1,2,Color.BLACK)));
-        assertFalse(pawn3.canKill(new Pawn(2,1,Color.BLACK)));
-        assertFalse(pawn3.canKill(new Pawn(3,3,Color.BLACK)));
+        assertTrue(pawn1.canKill(new Pawn(2, 0, Color.WHITE)));
+        assertTrue(pawn1.canKill(new Pawn(2, 2, Color.WHITE)));
+
+        assertFalse(pawn1.canKill(new Pawn(2, 1, Color.WHITE)));  // Same column
+        assertFalse(pawn1.canKill(new Pawn(0, 1, Color.WHITE)));  // Same column
+        assertFalse(pawn1.canKill(new Pawn(1, 0, Color.WHITE)));  // Same row
+        assertFalse(pawn1.canKill(new Pawn(1, 2, Color.WHITE)));  // Same row
+        assertFalse(pawn1.canKill(new Pawn(0, 2, Color.WHITE)));  // Backward
+        assertFalse(pawn1.canKill(new Pawn(3, 2, Color.WHITE)));  // More than 2 rows apart
+        assertFalse(pawn1.canKill(new Pawn(2, 3, Color.WHITE)));  // More than 2 columns apart
+        assertFalse(pawn1.canKill(new Pawn(2, 0, Color.BLACK)));  // Same color
+
+
+        assertTrue(pawn4.canKill(new Pawn(5, 0, Color.BLACK)));
+        assertTrue(pawn4.canKill(new Pawn(5, 2, Color.BLACK)));
+
+        assertFalse(pawn4.canKill(new Pawn(5, 1, Color.BLACK)));  // Same column
+        assertFalse(pawn4.canKill(new Pawn(7, 1, Color.BLACK)));  // Same column
+        assertFalse(pawn4.canKill(new Pawn(6, 0, Color.BLACK)));  // Same row
+        assertFalse(pawn4.canKill(new Pawn(6, 2, Color.BLACK)));  // Same row
+        assertFalse(pawn4.canKill(new Pawn(7, 2, Color.BLACK)));  // Backward
+        assertFalse(pawn4.canKill(new Pawn(4, 2, Color.BLACK)));  // More than 2 rows apart
+        assertFalse(pawn4.canKill(new Pawn(5, 3, Color.BLACK)));  // More than 2 columns apart
+        assertFalse(pawn4.canKill(new Pawn(5, 0, Color.WHITE)));  // Same color
+
     }
 }
