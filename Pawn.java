@@ -96,7 +96,7 @@ public class Pawn implements ChessPiece, BoardSize {
         }
         // A white pawn can only move one unit upward in row
         // Upward means bigger number is this.getRow()
-        if (getColor() == Color.WHITE) {
+        if (this.getColor() == Color.WHITE) {
             return this.getCol() == col && (this.getRow() - row) == 1;
         } else {
             // A black pawn can only move one unit downward in row
@@ -114,29 +114,60 @@ public class Pawn implements ChessPiece, BoardSize {
      */
     @Override
     public boolean canKill(ChessPiece piece) {
-        if (this.getRow() + 1 == piece.getRow() & this.getCol() + 1 == piece.getCol()) {
-            return true;
+        // First step: determine whether two pieces are same color.
+        // Cannot kill the same color
+        if (this.color == piece.getColor()) {
+            return false;
         }
-        if (this.getRow() + 1 == piece.getRow() & this.getCol() - 1 == piece.getCol()) {
-            return true;
+        // Second step: determine whether the columns of two pieces differ by 1
+        if (Math.abs(this.getCol() - piece.getCol()) == 1) {
+            // Third step: if it is a white pawn,
+            // determine it moves one unit upward in row
+            if ((this.getColor() == Color.WHITE) && ((this.getRow() - row) == 1)) {
+                return true;
+            }
+            // Fourth step: if it is a black pawn,
+            // determine it moves one unit downward in row
+            else if ((this.getColor() == Color.BLACK) && ((row - this.getRow()) == 1)) {
+                return true;
+            }
         }
         return false;
     }
 
 
     public static void main(String[] args) {
-        Pawn p1 = new Pawn(1,1, Color.WHITE);
+        Pawn p1 = new Pawn(1,1, Color.BLACK);
+        System.out.println("\nBLACK Pawn");
         System.out.println("\nTRUE:");
-        System.out.println(p1.canKill(new Pawn(2,0,Color.BLACK)) + " = True");
-        System.out.println(p1.canKill(new Pawn(2,2,Color.BLACK)) + " = True");
+        System.out.println(p1.canKill(new Pawn(2,0,Color.WHITE)) + " = True");
+        System.out.println(p1.canKill(new Pawn(2,2,Color.WHITE)) + " = True");
 
         System.out.println("\nFALSE:");
-        System.out.println(p1.canKill(new Pawn(2,1,Color.BLACK)) + " = False");
-        System.out.println(p1.canKill(new Pawn(1,0,Color.BLACK)) + " = False");
-        System.out.println(p1.canKill(new Pawn(1,2,Color.BLACK)) + " = False");
-        System.out.println(p1.canKill(new Pawn(0,1,Color.BLACK)) + " = False");
-        System.out.println(p1.canKill(new Pawn(0,2,Color.BLACK)) + " = False");
-        System.out.println(p1.canKill(new Pawn(3,3,Color.BLACK)) + " = False");
+        System.out.println(p1.canKill(new Pawn(2,1,Color.WHITE)) + " = False");  // Same column
+        System.out.println(p1.canKill(new Pawn(0,1,Color.WHITE)) + " = False");  // Same column
+        System.out.println(p1.canKill(new Pawn(1,0,Color.WHITE)) + " = False");  // Same row
+        System.out.println(p1.canKill(new Pawn(1,2,Color.WHITE)) + " = False");  // Same row
+        System.out.println(p1.canKill(new Pawn(0,2,Color.WHITE)) + " = False");  // Backward
+        System.out.println(p1.canKill(new Pawn(3,2,Color.WHITE)) + " = False");  // More than 2 rows apart
+        System.out.println(p1.canKill(new Pawn(2,3,Color.WHITE)) + " = False");  // More than 2 columns apart
+        System.out.println(p1.canKill(new Pawn(2,0,Color.BLACK)) + " = False");  // Same color
 
+
+        Pawn p2 = new Pawn(6,1, Color.WHITE);
+        System.out.println("\nWHITE Pawn");
+        System.out.println("\nTRUE:");
+        System.out.println(p2.canKill(new Pawn(5,0,Color.BLACK)) + " = True");
+        System.out.println(p2.canKill(new Pawn(5,2,Color.BLACK)) + " = True");
+
+        System.out.println("\nFALSE:");
+        System.out.println(p2.canKill(new Pawn(5,1,Color.BLACK)) + " = False");  // Same column
+        System.out.println(p2.canKill(new Pawn(7,1,Color.BLACK)) + " = False");  // Same column
+        System.out.println(p2.canKill(new Pawn(6,0,Color.BLACK)) + " = False");  // Same row
+        System.out.println(p2.canKill(new Pawn(6,2,Color.BLACK)) + " = False");  // Same row
+        System.out.println(p2.canKill(new Pawn(7,2,Color.BLACK)) + " = False");  // Backward
+        System.out.println(p2.canKill(new Pawn(4,2,Color.BLACK)) + " = False");  // More than 2 rows apart
+        System.out.println(p2.canKill(new Pawn(5,3,Color.BLACK)) + " = False");  // More than 2 columns apart
+        System.out.println(p2.canKill(new Pawn(5,0,Color.WHITE)) + " = False");  // Same color
     }
 }
