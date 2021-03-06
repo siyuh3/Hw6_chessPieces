@@ -123,12 +123,12 @@ public class Pawn implements ChessPiece, BoardSize {
         if (Math.abs(this.getCol() - piece.getCol()) == 1) {
             // Third step: if it is a white pawn,
             // determine it moves one unit upward in row
-            if ((this.getColor() == Color.WHITE) && ((this.getRow() - row) == 1)) {
+            if ((this.getColor() == Color.WHITE) && ((this.getRow() - piece.getRow()) == 1)) {
                 return true;
             }
             // Fourth step: if it is a black pawn,
             // determine it moves one unit downward in row
-            else if ((this.getColor() == Color.BLACK) && ((row - this.getRow()) == 1)) {
+            else if ((this.getColor() == Color.BLACK) && ((piece.getRow() - this.getRow()) == 1)) {
                 return true;
             }
         }
