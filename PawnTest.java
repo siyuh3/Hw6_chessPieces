@@ -104,5 +104,4 @@ public class PawnTest {
         assertFalse(pawn4.canKill(new Pawn(7, 1, Color.BLACK)));
         assertFalse(pawn4.canKill(new Pawn(7, 2, Color.BLACK)));
     }
-    }
 }
