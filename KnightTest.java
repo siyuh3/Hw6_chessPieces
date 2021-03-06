@@ -9,11 +9,13 @@ import static org.junit.Assert.*;
 public class KnightTest {
     private Knight knight1;
     private Knight knight2;
+    private Knight knight3;
 
     @Before
     public void setUp(){
         knight1 = new Knight(0,1, Color.WHITE);
         knight2 = new Knight(7, 6, Color.BLACK);
+        knight3 = new Knight(4,4, Color.WHITE);
     }
 
     /**
@@ -59,10 +61,18 @@ public class KnightTest {
      */
     @Test
     public void testCanKill(){
-        Knight knight3 = new Knight(1, 3, Color.BLACK);
-        Knight knight4 = new Knight(3, 2, Color.BLACK);
-        Knight knight5 = new Knight(5, 7, Color.BLACK);
-        assertTrue(knight1.canKill(knight3));
-        assertFalse(knight1.canKill(knight4));
+        assertTrue(knight3.canKill(new Knight(2,3,Color.BLACK)));
+        assertTrue(knight3.canKill(new Knight(2,5,Color.BLACK)));
+        assertTrue(knight3.canKill(new Knight(3,2,Color.BLACK)));
+        assertTrue(knight3.canKill(new Knight(3,6,Color.BLACK)));
+        assertTrue(knight3.canKill(new Knight(5,2,Color.BLACK)));
+        assertTrue(knight3.canKill(new Knight(5,6,Color.BLACK)));
+        assertTrue(knight3.canKill(new Knight(6,3,Color.BLACK)));
+        assertTrue(knight3.canKill(new Knight(6,5,Color.BLACK)));
+
+        assertFalse(knight3.canKill(new Knight(4,4,Color.BLACK)));
+        assertFalse(knight3.canKill(new Knight(2,3,Color.WHITE))); // color case
+        assertFalse(knight3.canKill(new Knight(1,1,Color.BLACK)));
+        assertFalse(knight3.canKill(new Knight(3,4,Color.BLACK)));
     }
 }
