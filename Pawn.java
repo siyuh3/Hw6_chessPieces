@@ -90,12 +90,18 @@ public class Pawn implements ChessPiece, BoardSize {
         if (row < MIN_ROW || row > MAX_ROW || col < MIN_COL || col > MAX_COL) {
             return false;
         }
+        // Can't move to original spot
+        if (this.getRow() == row && this.getCol() == col) {
+            return false;
+        }
         // A white pawn can only move one unit upward in row
+        // Upward means bigger number is this.getRow()
         if (getColor() == Color.WHITE) {
-            return this.getCol() == col && (row - this.getRow()) == 1;
+            return this.getCol() == col && (this.getRow() - row) == 1;
         } else {
             // A black pawn can only move one unit downward in row
-            return this.getCol() == col && (this.getRow() - row) == 1;
+            // Downward means bigger number is row variable
+            return this.getCol() == col && (row - this.getRow()) == 1;
         }
 
     }
@@ -118,11 +124,11 @@ public class Pawn implements ChessPiece, BoardSize {
     }
 
     public static void main(String[] args) {
-        Pawn p1 = new Pawn(1,0, Color.WHITE);
-        Pawn p2 = new Pawn(2,1,Color.BLACK);
-        Pawn p3 = new Pawn(4,4,Color.BLACK);
+        Pawn p1 = new Pawn(1,0, Color.BLACK);
+        Pawn p2 = new Pawn(2,1, Color.WHITE);
+        Pawn p3 = new Pawn(4,4, Color.WHITE);
 
-        System.out.println(p1.canKill(p2)); // true
-        System.out.println(p1.canKill(p3)); // false
+        System.out.println(p1.canKill(p2));
+        System.out.println(p1.canKill(p3));
     }
 }

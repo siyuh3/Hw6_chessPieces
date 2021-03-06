@@ -49,7 +49,7 @@ public class PawnTest {
      */
     @Test
     public void canMoveTest() {
-//        assertTrue(pawn1.canMove(2, 0)); // Error
+        assertTrue(pawn1.canMove(2, 0));
         assertFalse(pawn2.canMove(7, 1));
     }
 
