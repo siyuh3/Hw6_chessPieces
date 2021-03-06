@@ -9,18 +9,33 @@ public class Rook implements ChessPiece, BoardSize {
     private int column;
     private Color color;
 
+    /**
+     * Main Constructor that construct Rook object
+     *
+     * @param row    pawn in which row
+     * @param column pawn in which column
+     * @param color  pawn's color
+     */
     public Rook(int row, int column, Color color) {
         setRow(row);
         setColumn(column);
         setColor(color);
     }
 
+    /**
+     * Construct a default Row, Column and Color
+     */
     public Rook() {
         setRow(0);
         setColumn(7);
         setColor(Color.WHITE);
     }
 
+    /**
+     * The copy constructor use for copy original Pawn
+     *
+     * @param original original Rook object
+     */
     public Rook(Rook original) {
         setRow(original.getRow());
         setColor(original.getColor());
@@ -90,8 +105,9 @@ public class Rook implements ChessPiece, BoardSize {
      */
     @Override
     public boolean canKill(ChessPiece piece) {
-        // First step: determine whether two pieces are same color, if they are not in same color,
-        // return false, if they are not in same color, return true
+        // First step: determine whether two pieces are same color.
+        // If they are in same color, return false.
+        // If they are not in same color, return true.
         // Second step: When we invoke canKill, it means we check -->
         // Can Piece1 move to Piece2, if "yes" canKill true, if "no" canKill false,
         // SO JUST INVOKE canMove WILL SATISFY OUR NEEDED
@@ -111,6 +127,5 @@ public class Rook implements ChessPiece, BoardSize {
 
         System.out.println("\nFALSE");
         System.out.println(rook1.canKill(new Rook(5,3,Color.BLACK)) + " = False");
-
     }
 }
