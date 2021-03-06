@@ -1,6 +1,8 @@
 import org.junit.Test;
 import org.junit.Before;
 
+//import java.awt.Color; - i dont think we need this.
+
 import static org.junit.Assert.*;
 
 /**
@@ -9,11 +11,13 @@ import static org.junit.Assert.*;
 public class RookTest {
     private Rook rook1;
     private Rook rook2;
+    private Rook rook3;
 
     @Before
     public void setUp() {
         rook1 = new Rook(0, 0, Color.BLACK);
         rook2 = new Rook(0, 7, Color.WHITE);
+        rook3 = new Rook(4,4,Color.WHITE);
     }
 
     /**
@@ -57,9 +61,15 @@ public class RookTest {
      */
     @Test
     public void canKill() {
-        ChessPiece pawn1 = new Pawn(6, 0, Color.WHITE);
-        ChessPiece pawn2 = new Pawn(6, 1, Color.WHITE);
-        assertTrue(rook1.canKill(pawn1));
-        assertFalse(rook1.canKill(pawn2));
+        assertTrue(rook3.canKill(new Rook(2,4, Color.BLACK)));
+        assertTrue(rook3.canKill(new Rook(3,4, Color.BLACK)));
+        assertTrue(rook3.canKill(new Rook(4,3,Color.BLACK)));
+        assertTrue(rook3.canKill(new Rook(4,5,Color.BLACK)));
+        assertTrue(rook3.canKill(new Rook(4,5,Color.BLACK)));
+        assertFalse(rook3.canKill(new Rook(5,3,Color.BLACK)));
+        assertFalse(rook3.canKill(new Rook(5,4,Color.WHITE))); // same color test
+
+
+
     }
 }
