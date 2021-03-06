@@ -74,12 +74,6 @@ public class Bishop implements ChessPiece, BoardSize {
      */
     @Override
     public boolean canMove(int row, int col) {
-        /*
-        DIV by zero error.
-        Bishop bishop1 = new Bishop(2, 2, Color.WHITE);
-        System.out.println(bishop1.canMove(2,1));
-         */
-
         // Validates the targeted spot
         if (row < MIN_ROW || row > MAX_ROW || col < MIN_COL || col > MAX_COL) {
             return false;
@@ -88,10 +82,24 @@ public class Bishop implements ChessPiece, BoardSize {
         if (row == this.getRow() && col == this.getCol()) {
             return false;
         }
-        // As bishop moves diagonally, the slope between the targeted spot and the
-        // original spot must be either 1 or -1
-        int slope = (col - this.getCol()) / (row - this.getRow());
-        return slope == 1 || slope == -1;
+
+        // Slope formula (y2-y1)/(x2-x1);
+        // Slope = rise / run;
+        // move diagonally means slope = +-1;
+        // move horizontally or vertically means slope = 0;
+
+        int rise = col - this.getCol();
+        int run = row - this.getRow();
+        // Can move horizontally or vertically
+        // "Can't move to original spot" was checked before.
+        if (rise * run == 0) {
+            return false;
+        }
+        // Can move diagonally
+        else {
+            int slope = rise / run;
+            return (slope == 1 || slope == -1);
+        }
     }
 
     /**
@@ -102,8 +110,9 @@ public class Bishop implements ChessPiece, BoardSize {
      */
     @Override
     public boolean canKill(ChessPiece piece) {
-        // First step: determine whether two pieces are same color, if they are not in same color,
-        // return false, if they are not in same color, return true
+        // First step: determine whether two pieces are same color.
+        // If they are in same color, return false.
+        // If they are not in same color, return true.
         // Second step: When we invoke canKill, it means we check -->
         // Can Piece1 move to Piece2, if "yes" canKill true, if "no" canKill false,
         // SO JUST INVOKE canMove WILL SATISFY OUR NEEDED
