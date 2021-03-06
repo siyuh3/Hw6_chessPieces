@@ -12,8 +12,8 @@ public class RookTest {
 
     @Before
     public void setUp() {
-        rook1 = new Rook(0, 0, Color.WHITE);
-        rook2 = new Rook(0, 7, Color.BLACK);
+        rook1 = new Rook(0, 0, Color.BLACK);
+        rook2 = new Rook(0, 7, Color.WHITE);
     }
 
     /**
@@ -39,8 +39,8 @@ public class RookTest {
      */
     @Test
     public void getColor() {
-        assertEquals(Color.WHITE, rook1.getColor());
-        assertEquals(Color.BLACK, rook2.getColor());
+        assertEquals(Color.BLACK, rook1.getColor());
+        assertEquals(Color.WHITE, rook2.getColor());
     }
 
     /**
@@ -57,8 +57,8 @@ public class RookTest {
      */
     @Test
     public void canKill() {
-        ChessPiece pawn1 = new Pawn(6, 0, Color.BLACK);
-        ChessPiece pawn2 = new Pawn(6, 1, Color.BLACK);
+        ChessPiece pawn1 = new Pawn(6, 0, Color.WHITE);
+        ChessPiece pawn2 = new Pawn(6, 1, Color.WHITE);
         assertTrue(rook1.canKill(pawn1));
         assertFalse(rook1.canKill(pawn2));
     }
