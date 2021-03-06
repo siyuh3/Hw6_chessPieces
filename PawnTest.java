@@ -62,9 +62,9 @@ public class PawnTest {
         Pawn pawn4 = new Pawn(7, 0, Color.BLACK);
         Pawn pawn5 = new Pawn(2,0,Color.WHITE);
         Pawn pawn6 = new Pawn(2, 1, Color.WHITE);
-        assertFalse(pawn1.canKill(pawn3));
+        assertTrue(pawn1.canKill(pawn3));
         assertFalse(pawn2.canKill(pawn4));
-        assertFalse(pawn1.canKill(pawn5));
-        assertTrue(pawn1.canKill(pawn6));
+        assertTrue(pawn1.canKill(pawn5));
+        assertFalse(pawn1.canKill(pawn6));
     }
 }
