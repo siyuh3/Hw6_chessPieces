@@ -86,7 +86,12 @@ public class Knight implements ChessPiece, BoardSize {
         int newRow = Math.abs(row - this.getRow());
         double slope;
         slope = (double) newCol / newRow;
-        return slope == 2 || slope == (double) 1 / 2;
+
+        // We cannot compare double == double, because of decimal precision.
+        // Instead we can compare 2 double numbers using Math.abs
+        boolean diff1 = Math.abs(slope - 2) < 0.01;
+        boolean diff2 = Math.abs(slope - 0.5) < 0.01;
+        return diff1 || diff2;
     }
 
     /**
@@ -119,14 +124,17 @@ public class Knight implements ChessPiece, BoardSize {
         Knight valid7 = new Knight(6,3, Color.BLACK);
         Knight valid8 = new Knight(6,5, Color.BLACK);
 
+        // all true
         System.out.println(knight1.canKill(valid1));
         System.out.println(knight1.canKill(valid2));
         System.out.println(knight1.canKill(valid3));
         System.out.println(knight1.canKill(valid4));
+        System.out.println();
         System.out.println(knight1.canKill(valid5));
         System.out.println(knight1.canKill(valid6));
         System.out.println(knight1.canKill(valid7));
         System.out.println(knight1.canKill(valid8));
+        System.out.println();
 
         //not valid
         Knight fail1 = new Knight(1,1, Color.BLACK);
