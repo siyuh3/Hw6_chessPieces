@@ -50,7 +50,7 @@ public class QueenTest {
     public void canMoveTest() {
         assertTrue(queen1.canMove(7, 3));
         assertTrue(queen1.canMove(3, 0));
-//        assertFalse(queen2.canMove(0, 4));
+        assertFalse(queen2.canMove(0, 4));
     }
 
     /**
