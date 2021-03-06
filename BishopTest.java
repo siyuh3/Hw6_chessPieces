@@ -24,7 +24,7 @@ public class BishopTest {
     @Test
     public void getRowTest() {
         assertEquals(0, bishop1.getRow());
-        assertEquals(0,bishop2.getRow());
+        assertEquals(0, bishop2.getRow());
     }
 
     /**
