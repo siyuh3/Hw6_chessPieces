@@ -1,6 +1,6 @@
 /**
  * @program: Hw6_chessPieces
- * @description:
+ * @description: This class is Knight class that implements the ChessPiece class
  * @author: Siyu Hou, Kicho Yu
  * @create: 2021-02-26 02:40
  **/
@@ -9,39 +9,68 @@ public class Knight implements ChessPiece, BoardSize {
     private int column;
     private Color color;
 
+    /**
+     * Constructs a knight piece with a row number, column number, and color.
+     * @param row the row number of the knight
+     * @param column the column number of the knight
+     * @param color the color of the knight which can be either black or white
+     */
     public Knight(int row, int column, Color color) {
         setRow(row);
         setColumn(column);
         setColor(color);
     }
 
+    /**
+     * Default constructor
+     */
     public Knight() {
         setRow(7);
         setColumn(6);
         setColor(Color.WHITE);
     }
 
+    /**
+     * Copy constructor
+     */
     public Knight(Knight original) {
         setRow(original.getRow());
         setColor(original.getColor());
         setColumn(original.getCol());
     }
 
+    /**
+     * getRow method.
+     * @return returns the kngiht's current row.
+     */
     @Override
     public int getRow() {
         return this.row;
     }
 
+    /**
+     * getCol method.
+     * @return returns the knight's current column.
+     */
     @Override
     public int getCol() {
         return this.column;
     }
 
+    /**
+     * getColor method.
+     * @return returns the knight's color -- either white or black.
+     */
     @Override
     public Color getColor() {
         return this.color;
     }
 
+    /**
+     * setRow method for changing the knight's row.
+     * @param row updates the knights's row with a new row.
+     * @throws IllegalArgumentException an error arises when a new proposed value is outside the chess board
+     */
     public void setRow(int row) throws IllegalArgumentException {
         if (row < MIN_ROW || row > MAX_ROW) {
             throw new IllegalArgumentException("The row/column should range from 0 to 7");
@@ -49,6 +78,12 @@ public class Knight implements ChessPiece, BoardSize {
         this.row = row;
     }
 
+    /**
+     * setColumn method for changing the knight's column.
+     * @param column changes the knight's column to a new column.
+     * @throws IllegalArgumentException an error arises when a new proposed
+     *         value is outside the chess board's boundaries.
+     */
     public void setColumn(int column) throws IllegalArgumentException {
         if (column < MIN_COL || column > MAX_COL) {
             throw new IllegalArgumentException("The row/column should range from 0 to 7");
@@ -56,6 +91,10 @@ public class Knight implements ChessPiece, BoardSize {
         this.column = column;
     }
 
+    /**
+     * setter method for changing the color of the chess piece.
+     * @param color changes the color of the chess piece.
+     */
     public void setColor(Color color) {
         this.color = color;
     }
@@ -74,19 +113,19 @@ public class Knight implements ChessPiece, BoardSize {
         if (row < MIN_ROW || row > MAX_ROW || col < MIN_COL || col > MAX_COL) {
             return false;
         }
-        // Can't move to original spot
-        if (row == this.getRow() && col == this.getCol()) {
-            return false;
-        }
+        
         // A knight can move only in an L pattern, either 2 units in row and 1 unit in column or 
-        // the other way around. Therefore, the distance between the targeted spot and the
-        // original spot is square root of 5, by the pythagorean theorem
-        // double distance = Math.sqrt(Math.pow(this.getRow() - row, 2) + Math.pow(this.getCol() - col, 2));
-        // return distance == Math.sqrt(5);
+        // the other way around. Therefore the slope must be either +-2 or +-1/2
         int rise = row - this.getRow();
         int run = col - this.getCol();
+        
+        // Can't move horizontally or vertically
+        // Can't move to original spot
+        if (rise * run == 0) {
+            return false;
+        }
         double slope = Math.abs((double) rise / run);
-
+        
         // We cannot compare double == double, because of decimal precision.
         // Instead we can compare 2 double numbers using Math.abs
         boolean diff1 = Math.abs(slope - 2) < 0.01;
