@@ -102,12 +102,6 @@ public class Knight implements ChessPiece, BoardSize {
      */
     @Override
     public boolean canKill(ChessPiece piece) {
-        // First step: determine whether two pieces are same color, if they are not in same color,
-        // return false, if they are not in same color, return true
-        // Second step: When we invoke canKill, it means we check -->
-        // Can Piece1 move to Piece2, if "yes" canKill true, if "no" canKill false,
-        // SO JUST INVOKE canMove WILL SATISFY OUR NEEDED
-        // DON'T COPY CODE FROM canMove
         return this.color != piece.getColor() && this.canMove(piece.getRow(), piece.getCol());
     }
 
