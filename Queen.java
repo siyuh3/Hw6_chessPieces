@@ -16,9 +16,9 @@ public class Queen implements ChessPiece, BoardSize {
     }
 
     public Queen() {
-        setRow(0);
-        setColumn(0);
-        setColor(null);
+        setRow(7);
+        setColumn(3);
+        setColor(Color.WHITE);
     }
 
     public Queen(Queen original) {
@@ -106,23 +106,6 @@ public class Queen implements ChessPiece, BoardSize {
     }
 
     public static void main(String[] args) {
-        Queen queen1 = new Queen(3,5, Color.WHITE);
-
-        System.out.println("TRUE\n");
-        System.out.println(queen1.canKill(new Queen(3,4, Color.BLACK)) + " = True");
-        System.out.println(queen1.canKill(new Queen(3,6, Color.BLACK)) + " = True");
-        System.out.println(queen1.canKill(new Queen(4,6, Color.BLACK)) + " = True");
-        System.out.println(queen1.canKill(new Queen(2,5,Color.BLACK)) + " = True");
-
-
-
-        System.out.println("\nFALSE");
-        System.out.println(queen1.canKill(new Queen(4,3, Color.BLACK)) + " = false");
-
-        System.out.println("\nQueen movement");
-        System.out.println(queen1.canMove(2,5) + " queen moves down 1");
-        System.out.println(queen1.canMove(4,5) + " queen moves up 1");
-
 
     }
 }
