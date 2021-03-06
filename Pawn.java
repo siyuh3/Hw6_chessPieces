@@ -114,21 +114,29 @@ public class Pawn implements ChessPiece, BoardSize {
      */
     @Override
     public boolean canKill(ChessPiece piece) {
-        // First step: determine whether two pieces are same color, if they are not in same color,
-        // return false, if they are not in same color, return true
-        // Second step: When we invoke canKill, it means we check -->
-        // Can Piece1 move to Piece2, if "yes" canKill true, if "no" canKill false,
-        // SO JUST INVOKE canMove WILL SATISFY OUR NEEDED
-        // DON'T COPY CODE FROM canMove
-        return this.color != piece.getColor() && this.canMove(piece.getRow(), piece.getCol());
+        if (this.getRow() + 1 == piece.getRow() & this.getCol() + 1 == piece.getCol()) {
+            return true;
+        }
+        if (this.getRow() + 1 == piece.getRow() & this.getCol() - 1 == piece.getCol()) {
+            return true;
+        }
+        return false;
     }
 
-    public static void main(String[] args) {
-        Pawn p1 = new Pawn(1,0, Color.BLACK);
-        Pawn p2 = new Pawn(2,0, Color.WHITE);
-        Pawn p3 = new Pawn(4,4, Color.WHITE);
 
-        System.out.println(p1.canKill(p2));
-        System.out.println(p1.canKill(p3));
+    public static void main(String[] args) {
+        Pawn p1 = new Pawn(1,1, Color.WHITE);
+        System.out.println("\nTRUE:");
+        System.out.println(p1.canKill(new Pawn(2,0,Color.BLACK)) + " = True");
+        System.out.println(p1.canKill(new Pawn(2,2,Color.BLACK)) + " = True");
+
+        System.out.println("\nFALSE:");
+        System.out.println(p1.canKill(new Pawn(2,1,Color.BLACK)) + " = False");
+        System.out.println(p1.canKill(new Pawn(1,0,Color.BLACK)) + " = False");
+        System.out.println(p1.canKill(new Pawn(1,2,Color.BLACK)) + " = False");
+        System.out.println(p1.canKill(new Pawn(0,1,Color.BLACK)) + " = False");
+        System.out.println(p1.canKill(new Pawn(0,2,Color.BLACK)) + " = False");
+        System.out.println(p1.canKill(new Pawn(3,3,Color.BLACK)) + " = False");
+
     }
 }
