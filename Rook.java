@@ -125,7 +125,6 @@ public class Rook implements ChessPiece, BoardSize {
 
     /**
      * Determines if a player's chess piece can kill an opponents chess piece.
-     *
      * @param piece ChessPiece object opponents chess piece.
      * @return true if opponent's piece is a different color and false otherwise.
      */

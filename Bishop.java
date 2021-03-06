@@ -149,7 +149,6 @@ public class Bishop implements ChessPiece, BoardSize {
 
     /**
      * main method to try some case
-     *
      * @param args array
      */
     public static void main(String[] args) {
