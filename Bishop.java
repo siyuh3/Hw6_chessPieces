@@ -9,19 +9,30 @@ public class Bishop implements ChessPiece, BoardSize {
     private int row;
     private int column;
     private Color color;
-
+    /**
+     * Constructs a bishop piece with a row number, column number, and color.
+     * @param row the row number of the bishop
+     * @param column the column number of the bishop
+     * @param color the color of the bishop which can be either black or white
+     */
     public Bishop(int row, int column, Color color) {
         setRow(row);
         setColumn(column);
         setColor(color);
     }
-
+    
+    /**
+     * Default constructor
+     */
     public Bishop() {
         setRow(7);
         setColumn(2);
         setColor(Color.WHITE);
     }
 
+    /**
+     * Copy constructor
+     */
     public Bishop(Bishop original) throws IllegalArgumentException {
         if (original == null) {
             throw new IllegalArgumentException("Original Bishop cannot be null");
@@ -84,7 +95,7 @@ public class Bishop implements ChessPiece, BoardSize {
     }
 
     /**
-     *  setter method for changing the color of the chess piece.
+     * setter method for changing the color of the chess piece.
      * @param color changes the color of the chess piece.
      */
     public void setColor(Color color) {
@@ -105,19 +116,15 @@ public class Bishop implements ChessPiece, BoardSize {
         if (row < MIN_ROW || row > MAX_ROW || col < MIN_COL || col > MAX_COL) {
             return false;
         }
-        // Can't move to original spot
-        if (row == this.getRow() && col == this.getCol()) {
-            return false;
-        }
 
         // Slope formula (y2-y1)/(x2-x1);
         // Slope = rise / run;
         // move diagonally means slope = +-1;
-        // move horizontally or vertically means slope = 0;
+        // move horizontally or vertically means slope = 0 or undefined;
 
         int rise = col - this.getCol();
         int run = row - this.getRow();
-        // Can move horizontally or vertically
+        // Can't move horizontally or vertically
         // "Can't move to original spot" was checked before.
         if (rise * run == 0) {
             return false;
@@ -142,7 +149,7 @@ public class Bishop implements ChessPiece, BoardSize {
         // If they are not in same color, return true.
         // Second step: When we invoke canKill, it means we check -->
         // Can Piece1 move to Piece2, if "yes" canKill true, if "no" canKill false,
-        // SO JUST INVOKE canMove WILL SATISFY OUR NEEDED
+        // SO JUST INVOKE canMove WILL SATISFY OUR NEED
         // DON'T COPY CODE FROM canMove
         return this.color != piece.getColor() && this.canMove(piece.getRow(), piece.getCol());
     }
