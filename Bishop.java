@@ -78,6 +78,7 @@ public class Bishop implements ChessPiece, BoardSize {
         if (row < MIN_ROW || row > MAX_ROW || col < MIN_COL || col > MAX_COL) {
             return false;
         }
+        // Can't move to original spot
         if (row == this.getRow() && col == this.getCol()) {
             return false;
         }
