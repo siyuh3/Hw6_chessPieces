@@ -70,8 +70,8 @@ public class Bishop implements ChessPiece, BoardSize {
     }
 
     /**
-     * setRow method for changing the object's row.
-     * @param row updates the object's row with a new row.
+     * setRow method for changing the bishop's row.
+     * @param row updates the bishop's row with a new row.
      * @throws IllegalArgumentException an error arises when a new proposed value is outside the chess board
      */
     public void setRow(int row) throws IllegalArgumentException {
@@ -82,8 +82,8 @@ public class Bishop implements ChessPiece, BoardSize {
     }
 
     /**
-     * setColumn method for changing the object's column.
-     * @param column changes the object's column to a new column.
+     * setColumn method for changing the bishop's column.
+     * @param column changes the bishop's column to a new column.
      * @throws IllegalArgumentException an error arises when a new proposed
      * value is outside the chess board's boundaries.
      */
@@ -95,8 +95,8 @@ public class Bishop implements ChessPiece, BoardSize {
     }
 
     /**
-     * setter method for changing the color of the chess piece.
-     * @param color changes the color of the chess piece.
+     * setter method for changing the color of the bishop.
+     * @param color changes the color of the bishop.
      */
     public void setColor(Color color) {
         this.color = color;
