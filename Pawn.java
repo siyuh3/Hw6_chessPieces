@@ -43,21 +43,38 @@ public class Pawn implements ChessPiece, BoardSize {
         setColumn(original.getCol());
     }
 
+    /**
+     * getRow method.
+     * @return returns the pawn's current row.
+     */
     @Override
     public int getRow() {
         return this.row;
     }
 
+    /**
+     * getCol method.
+     * @return returns the pawn's current column.
+     */
     @Override
     public int getCol() {
         return this.column;
     }
 
+    /**
+     * getColor method.
+     * @return returns the pawn's color -- either white or black.
+     */
     @Override
     public Color getColor() {
         return this.color;
     }
 
+    /**
+     * setRow method for changing the pawn's row.
+     * @param row updates the pawn's row with a new row.
+     * @throws IllegalArgumentException an error arises when a new proposed value is outside the chess board
+     */
     public void setRow(int row) throws IllegalArgumentException {
         if (row < MIN_ROW || row > MAX_ROW) {
             throw new IllegalArgumentException("The row/column should range from 0 to 7");
@@ -65,6 +82,12 @@ public class Pawn implements ChessPiece, BoardSize {
         this.row = row;
     }
 
+    /**
+     * setColumn method for changing the pawn's column.
+     * @param column changes the pawn's column to a new column.
+     * @throws IllegalArgumentException an error arises when a new proposed
+     *         value is outside the chess board's boundaries.
+     */
     public void setColumn(int column) throws IllegalArgumentException {
         if (column < MIN_COL || column > MAX_COL) {
             throw new IllegalArgumentException("The row/column should range from 0 to 7");
@@ -72,6 +95,10 @@ public class Pawn implements ChessPiece, BoardSize {
         this.column = column;
     }
 
+    /**
+     * setter method for changing the color of the pawn.
+     * @param color changes the color of the pawn.
+     */
     public void setColor(Color color) {
         this.color = color;
     }
@@ -82,7 +109,7 @@ public class Pawn implements ChessPiece, BoardSize {
      * @param row the row of the targeted spot
      * @param col the column of the targeted spot
      * @return true if this pawn can move to the given targeted spot and
-     * false if not
+     *         false if not
      */
     @Override
     public boolean canMove(int row, int col) {
