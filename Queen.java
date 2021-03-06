@@ -1,6 +1,6 @@
 /**
  * @program: Hw6_chessPieces
- * @description:
+ * @description: this class is Queen class which implements the ChessPiece class
  * @author: Siyu Hou, Kicho Yu
  * @create: 2021-02-26 02:41
  **/
@@ -9,39 +9,68 @@ public class Queen implements ChessPiece, BoardSize {
     private int column;
     private Color color;
 
+    /**
+     * Constructs a queen piece with a row number, column number, and color.
+     * @param row the row number of the queen
+     * @param column the column number of the queen
+     * @param color the color of the queen which can be either black or white
+     */
     public Queen(int row, int column, Color color) {
         setRow(row);
         setColumn(column);
         setColor(color);
     }
 
+    /**
+     * Default constructor
+     */
     public Queen() {
         setRow(7);
         setColumn(3);
         setColor(Color.WHITE);
     }
 
+    /**
+     * Copy constructor
+     */
     public Queen(Queen original) {
         setRow(original.getRow());
         setColor(original.getColor());
         setColumn(original.getCol());
     }
 
+    /**
+     * getRow method.
+     * @return returns the queen's current row.
+     */
     @Override
     public int getRow() {
         return this.row;
     }
 
+    /**
+     * getCol method.
+     * @return returns the queen's current column.
+     */
     @Override
     public int getCol() {
         return this.column;
     }
 
+    /**
+     * getColor method.
+     * @return returns the queen's color -- either white or black.
+     */
     @Override
     public Color getColor() {
         return this.color;
     }
 
+    /**
+     * setRow method for changing the queen's row.
+     * @param row updates the queen's row with a new row.
+     * @throws IllegalArgumentException an error arises when a new proposed value is outside the chess board
+     */
     public void setRow(int row) throws IllegalArgumentException {
         if (row < MIN_ROW || row > MAX_ROW) {
             throw new IllegalArgumentException("The row/column should range from 0 to 7");
@@ -49,6 +78,12 @@ public class Queen implements ChessPiece, BoardSize {
         this.row = row;
     }
 
+    /**
+     * setColumn method for changing the queen's column.
+     * @param column changes the queen's column to a new column.
+     * @throws IllegalArgumentException an error arises when a new proposed
+     * value is outside the chess board's boundaries.
+     */
     public void setColumn(int column) throws IllegalArgumentException {
         if (column < MIN_COL || column > MAX_COL) {
             throw new IllegalArgumentException("The row/column should range from 0 to 7");
@@ -56,6 +91,10 @@ public class Queen implements ChessPiece, BoardSize {
         this.column = column;
     }
 
+    /**
+     * setter method for changing the color of the queen.
+     * @param color changes the color of the queen.
+     */
     public void setColor(Color color) {
         this.color = color;
     }
