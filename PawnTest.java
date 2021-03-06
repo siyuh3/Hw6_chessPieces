@@ -10,12 +10,16 @@ public class PawnTest {
     private Pawn pawn1;
     private Pawn pawn2;
     private Pawn pawn3;
+    private Pawn pawn4;
+    private Pawn pawn5;
 
     @Before
     public void setUp() {
         pawn1 = new Pawn(1, 0, Color.BLACK);
         pawn2 = new Pawn(6, 0, Color.WHITE);
         pawn3 = new Pawn(6, 5, Color.WHITE);
+        pawn4 = new Pawn(6,1,Color.WHITE);
+        pawn5 = new Pawn(1, 1, Color.BLACK);
     }
 
     /**
