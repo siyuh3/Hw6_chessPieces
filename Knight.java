@@ -18,7 +18,7 @@ public class Knight implements ChessPiece, BoardSize {
     public Knight() {
         setRow(7);
         setColumn(6);
-        setColor(null);
+        setColor(Color.WHITE);
     }
 
     public Knight(Knight original) {
@@ -74,18 +74,18 @@ public class Knight implements ChessPiece, BoardSize {
         if (row < MIN_ROW || row > MAX_ROW || col < MIN_COL || col > MAX_COL) {
             return false;
         }
+        // Can't move to original spot
         if (row == this.getRow() && col == this.getCol()) {
             return false;
         }
         // A knight can move only in an L pattern, either 2 units in row and 1 unit in column or 
         // the other way around. Therefore, the distance between the targeted spot and the
         // original spot is square root of 5, by the pythagorean theorem
-        //double distance = Math.sqrt(Math.pow(this.getRow() - row, 2) + Math.pow(this.getCol() - col, 2));
-        //return distance == Math.sqrt(5);
-        int newCol = Math.abs(col - this.getCol());
-        int newRow = Math.abs(row - this.getRow());
-        double slope;
-        slope = (double) newCol / newRow;
+        // double distance = Math.sqrt(Math.pow(this.getRow() - row, 2) + Math.pow(this.getCol() - col, 2));
+        // return distance == Math.sqrt(5);
+        int rise = row - this.getRow();
+        int run = col - this.getCol();
+        double slope = Math.abs((double) rise / run);
 
         // We cannot compare double == double, because of decimal precision.
         // Instead we can compare 2 double numbers using Math.abs
@@ -114,7 +114,7 @@ public class Knight implements ChessPiece, BoardSize {
     public static void main(String[] args) {
         Knight knight1 = new Knight(4,4,Color.WHITE);
 
-        //valid
+        // valid
         Knight valid1 = new Knight(2,3,Color.BLACK);
         Knight valid2 = new Knight(2,5, Color.BLACK);
         Knight valid3 = new Knight(3,2,Color.BLACK);
@@ -124,7 +124,6 @@ public class Knight implements ChessPiece, BoardSize {
         Knight valid7 = new Knight(6,3, Color.BLACK);
         Knight valid8 = new Knight(6,5, Color.BLACK);
 
-        // all true
         System.out.println(knight1.canKill(valid1));
         System.out.println(knight1.canKill(valid2));
         System.out.println(knight1.canKill(valid3));
@@ -136,7 +135,7 @@ public class Knight implements ChessPiece, BoardSize {
         System.out.println(knight1.canKill(valid8));
         System.out.println();
 
-        //not valid
+        // not valid
         Knight fail1 = new Knight(1,1, Color.BLACK);
         Knight fail2 = new Knight(1,0, Color.BLACK);
         System.out.println(knight1.canKill(fail1));
