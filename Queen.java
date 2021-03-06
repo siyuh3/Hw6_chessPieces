@@ -74,6 +74,7 @@ public class Queen implements ChessPiece, BoardSize {
         if (row < MIN_ROW || row > MAX_ROW || col < MIN_COL || col > MAX_COL) {
             return false;
         }
+        // Can't move to original spot
         if (row == this.row && col == this.column) {
             return false;
         }
@@ -82,11 +83,15 @@ public class Queen implements ChessPiece, BoardSize {
         // Slope = rise / run;
         // move diagonally means slope = +-1;
         // move horizontally or vertically means slope = 0;
-        int rise = col - this.getCol();
-        int run = row - this.getRow();
+        int rise = row - this.getRow();
+        int run = col - this.getCol();
+
+        // Can move horizontally or vertically
+        // "Can't move to original spot" was checked before.
         if (rise * run == 0) {
             return true;
         }
+        // Can move diagonally
         else {
             int slope = rise / run;
             return (slope == 1 || slope == -1);
@@ -113,6 +118,8 @@ public class Queen implements ChessPiece, BoardSize {
     public static void main(String[] args) {
         // No div by zero error
         Queen queen1 = new Queen(3,5, Color.WHITE);
-        System.out.println(queen1.canMove(3,4));
+        System.out.println(queen1.canMove(3,4));  // true, horizontal move
+        System.out.println(queen1.canMove(4,5));  // true, vertical move
+        System.out.println(queen1.canMove(3,5));  // false, same spot
     }
 }
