@@ -74,6 +74,12 @@ public class Bishop implements ChessPiece, BoardSize {
      */
     @Override
     public boolean canMove(int row, int col) {
+        /*
+        DIV by zero error.
+        Bishop bishop1 = new Bishop(2, 2, Color.WHITE);
+        System.out.println(bishop1.canMove(2,1));
+         */
+
         // Validates the targeted spot
         if (row < MIN_ROW || row > MAX_ROW || col < MIN_COL || col > MAX_COL) {
             return false;
@@ -111,34 +117,20 @@ public class Bishop implements ChessPiece, BoardSize {
      * @param args array
      */
     public static void main(String[] args) {
-        Bishop bishop2 = new Bishop(0, 2, Color.BLACK);
-        Bishop bishop4 = new Bishop(3, 5, Color.WHITE);
-        System.out.println(bishop2.canMove(3, 5));
-        System.out.println(bishop2.canKill(bishop4));
-
-
-        //Tested
-        Bishop bishop1 = new Bishop(3, 5, Color.WHITE);
-
+        Bishop bishop1 = new Bishop(2, 2, Color.WHITE);
         System.out.println("TRUE");
-        // valid
-        Bishop b1T = new Bishop(2,4,Color.BLACK);
-        Bishop b2T = new Bishop(2,6,Color.BLACK);
-        Bishop b3T = new Bishop(4,4,Color.BLACK);
-        Bishop b4T = new Bishop(4,6,Color.BLACK);
-        System.out.println(bishop1.canKill(b1T));
-        System.out.println(bishop1.canKill(b2T));
-        System.out.println(bishop1.canKill(b3T));
-        System.out.println(bishop1.canKill(b4T));
+        System.out.println(bishop1.canKill(new Bishop(1,1,Color.BLACK)) + " = True");
+        System.out.println(bishop1.canKill(new Bishop(1,3,Color.BLACK)) + " = True");
+        System.out.println(bishop1.canKill(new Bishop(3,1,Color.BLACK)) + " = True");
+        System.out.println(bishop1.canKill(new Bishop(3,3,Color.BLACK)) + " = True");
+
 
         System.out.println("\nFALSE");
-        //invalid
-        Bishop b5T = new Bishop(3,4,Color.BLACK);
-        Bishop b6T = new Bishop(7,8,Color.BLACK);
-        Bishop b7T = bishop1;
-        System.out.println(bishop1.canKill(b5T));
-        System.out.println(bishop1.canKill(b6T));
-        System.out.println(bishop1.canKill(b7T));
+        System.out.println(bishop1.canKill(new Bishop(3,2,Color.BLACK)) + " = False");
+        System.out.println(bishop1.canKill(new Bishop(1,2,Color.BLACK)) + " = False");
+        System.out.println(bishop1.canKill(new Bishop(2,1,Color.BLACK)) + " = False");
+        System.out.println(bishop1.canKill(new Bishop(2,3,Color.BLACK)) + " = False");
+
 
     }
 }

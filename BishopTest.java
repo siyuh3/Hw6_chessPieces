@@ -11,11 +11,14 @@ public class BishopTest {
     private Bishop bishop2;
     private Bishop bishop3;
     private Bishop bishop4;
+    private Bishop bishop5;
 
     @Before
     public void setUp() {
         bishop1 = new Bishop(0, 2, Color.BLACK);
         bishop2 = new Bishop(0, 5, Color.WHITE);
+        bishop5 = new Bishop(2,2,Color.WHITE);
+
     }
 
     /**
@@ -61,11 +64,14 @@ public class BishopTest {
      */
     @Test
     public void testCanKill() {
-        bishop3 = new Bishop(3, 5, Color.WHITE);
-        assertTrue(bishop1.canKill(bishop3));
+        assertTrue(bishop5.canKill(new Bishop(1,1,Color.BLACK)));
+        assertTrue(bishop5.canKill(new Bishop(1,3,Color.BLACK)));
+        assertTrue(bishop5.canKill(new Bishop(3,1,Color.BLACK)));
+        assertTrue(bishop5.canKill(new Bishop(3,3,Color.BLACK)));
+        assertFalse(bishop5.canKill(new Bishop(3,2,Color.BLACK)));
+        assertFalse(bishop5.canKill(new Bishop(1,2,Color.BLACK)));
+        assertFalse(bishop5.canKill(new Bishop(2,1,Color.BLACK)));
+        assertFalse(bishop5.canKill(new Bishop(2,3,Color.BLACK)));
 
-        //can't kill if row=2, col = 5
-        bishop4 = new Bishop(2, 5, Color.BLACK);
-        assertFalse(bishop2.canKill(bishop4));
     }
 }
