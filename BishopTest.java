@@ -14,8 +14,8 @@ public class BishopTest {
 
     @Before
     public void setUp() {
-        bishop1 = new Bishop(0, 2, Color.WHITE);
-        bishop2 = new Bishop(0, 5, Color.BLACK);
+        bishop1 = new Bishop(0, 2, Color.BLACK);
+        bishop2 = new Bishop(0, 5, Color.WHITE);
     }
 
     /**
@@ -41,8 +41,8 @@ public class BishopTest {
      */
     @Test
     public void getColorTest() {
-        assertEquals(Color.WHITE, bishop1.getColor());
-        assertEquals(Color.BLACK, bishop2.getColor());
+        assertEquals(Color.BLACK, bishop1.getColor());
+        assertEquals(Color.WHITE, bishop2.getColor());
     }
 
     /**
@@ -61,11 +61,11 @@ public class BishopTest {
      */
     @Test
     public void testCanKill() {
-        bishop3 = new Bishop(3, 5, Color.BLACK);
+        bishop3 = new Bishop(3, 5, Color.WHITE);
         assertTrue(bishop1.canKill(bishop3));
 
         //can't kill if row=2, col = 5
-        bishop4 = new Bishop(2, 5, Color.WHITE);
+        bishop4 = new Bishop(2, 5, Color.BLACK);
         assertFalse(bishop2.canKill(bishop4));
     }
 }
