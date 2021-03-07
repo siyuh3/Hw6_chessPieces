@@ -125,8 +125,8 @@ public class Bishop implements ChessPiece, BoardSize {
         // move diagonally means slope = +-1;
         // move horizontally or vertically means slope = 0 or undefined;
 
-        int rise = col - this.getCol();
-        int run = row - this.getRow();
+        int rise = row - this.getRow();
+        int run = col - this.getCol();
         // Can't move horizontally or vertically
         // "Can't move to original spot" was checked before.
         if (rise * run == 0) {
@@ -175,7 +175,5 @@ public class Bishop implements ChessPiece, BoardSize {
         System.out.println(bishop1.canKill(new Bishop(1,2,Color.BLACK)) + " = False");
         System.out.println(bishop1.canKill(new Bishop(2,1,Color.BLACK)) + " = False");
         System.out.println(bishop1.canKill(new Bishop(2,3,Color.BLACK)) + " = False");
-
-
     }
 }
