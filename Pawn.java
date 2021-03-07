@@ -133,20 +133,27 @@ public class Pawn implements ChessPiece, BoardSize {
      */
     @Override
     public boolean canKill(ChessPiece piece) {
-        // First step: determine whether two pieces are same color.
-        // Cannot kill the same color
+        /*
+        - First step: determine whether two pieces are the same color. If they are the same color,
+        canKill returns false. Otherwise it continues on.
+        - Second step: determine whether the columns differ by 1. Pawns can only kill at a diagonal.
+        - Third step: The color is important. White chess pieces are on the bottom and black pieces are on the top.
+        White pawns will always increase in row value since move to a greater number row.
+        Moreover, Black pawns will always decrease in row value since they start a high row value and move
+        to a lower row value. This is due to the graphical representation of the chess board.
+         */
         if (this.color == piece.getColor()) {
             return false;
         }
-        // Second step: determine whether the columns of two pieces differ by 1
+        //determine whether the columns of two pieces differ by 1
         if (Math.abs(this.getCol() - piece.getCol()) == ONE) {
-            // Third step: if it is a black pawn,
-            // determine it moves one unit downward in row
+
+            //Black pawn: determine it moves one unit downward in row
             if ((this.getColor() == Color.BLACK) && ((this.getRow() - piece.getRow()) == ONE)) {
                 return true;
             }
-            // Fourth step: if it is a white pawn,
-            // determine it moves one unit upward in row
+
+            // White pawn: determine it moves one unit upward in row
             else if ((this.getColor() == Color.WHITE) && ((piece.getRow() - this.getRow()) == ONE)) {
                 return true;
             }
