@@ -113,21 +113,21 @@ public class QueenTest {
      */
     @Test
     public void canKill() {
-        assertTrue(queen3.canKill(new Queen(1,1, Color.BLACK)));
-        assertTrue(queen3.canKill(new Queen(1,2, Color.BLACK)));
-        assertTrue(queen3.canKill(new Queen(1,3, Color.BLACK)));
-        assertTrue(queen3.canKill(new Queen(2,1, Color.BLACK)));
-        assertTrue(queen3.canKill(new Queen(2,3, Color.BLACK)));
-        assertTrue(queen3.canKill(new Queen(3,1, Color.BLACK)));
-        assertTrue(queen3.canKill(new Queen(3,2, Color.BLACK)));
-        assertTrue(queen3.canKill(new Queen(3,3, Color.BLACK)));
+        assertTrue(queen3.canKill(new Queen(1,1, Color.BLACK)));    // diag moving back left
+        assertTrue(queen3.canKill(new Queen(1,2, Color.BLACK)));    // moving back 1 row
+        assertTrue(queen3.canKill(new Queen(1,3, Color.BLACK)));    // diag moving back right
+        assertTrue(queen3.canKill(new Queen(2,1, Color.BLACK)));    // left
+        assertTrue(queen3.canKill(new Queen(2,3, Color.BLACK)));    // right
+        assertTrue(queen3.canKill(new Queen(3,1, Color.BLACK)));    // diag moving up left
+        assertTrue(queen3.canKill(new Queen(3,2, Color.BLACK)));    // moving up 1 row
+        assertTrue(queen3.canKill(new Queen(3,3, Color.BLACK)));    // diag moving up right
 
-        assertFalse(queen3.canKill(new Queen(0,1, Color.BLACK)));
-        assertFalse(queen3.canKill(new Queen(0,3, Color.BLACK)));
-        assertFalse(queen3.canKill(new Queen(1,0, Color.BLACK)));
-        assertFalse(queen3.canKill(new Queen(1,4, Color.BLACK)));
-        assertFalse(queen3.canKill(new Queen(3,4, Color.BLACK)));
-        assertFalse(queen3.canKill(new Queen(4,3, Color.BLACK)));
-        assertFalse(queen3.canKill(new Queen(1,1, Color.WHITE)));
+        assertFalse(queen3.canKill(new Queen(0,1, Color.BLACK)));   // not diag -- L shape down 2 left 1
+        assertFalse(queen3.canKill(new Queen(0,3, Color.BLACK)));   // not diag -- L shape down 2 right 1
+        assertFalse(queen3.canKill(new Queen(1,0, Color.BLACK)));   // not diag -- L shape down 1 left 2
+        assertFalse(queen3.canKill(new Queen(1,4, Color.BLACK)));   // not diag -- L shape down 1 right 2
+        assertFalse(queen3.canKill(new Queen(3,4, Color.BLACK)));   // not diag -- L shape up 1 right 2
+        assertFalse(queen3.canKill(new Queen(4,3, Color.BLACK)));   // not diag -- L shape up 2 right 1
+        assertFalse(queen3.canKill(new Queen(1,1, Color.WHITE)));   // same color
     }
 }
