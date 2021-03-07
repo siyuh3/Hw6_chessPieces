@@ -112,14 +112,14 @@ public class KnightTest {
      */
     @Test
     public void testCanKill(){
-        assertTrue(knight3.canKill(new Knight(2,3,Color.BLACK)));
-        assertTrue(knight3.canKill(new Knight(2,5,Color.BLACK)));
-        assertTrue(knight3.canKill(new Knight(3,2,Color.BLACK)));
-        assertTrue(knight3.canKill(new Knight(3,6,Color.BLACK)));
-        assertTrue(knight3.canKill(new Knight(5,2,Color.BLACK)));
-        assertTrue(knight3.canKill(new Knight(5,6,Color.BLACK)));
-        assertTrue(knight3.canKill(new Knight(6,3,Color.BLACK)));
-        assertTrue(knight3.canKill(new Knight(6,5,Color.BLACK)));
+        assertTrue(knight3.canKill(new Knight(2,3,Color.BLACK)));   //down 2 left 1
+        assertTrue(knight3.canKill(new Knight(2,5,Color.BLACK)));   //down 2 right 1
+        assertTrue(knight3.canKill(new Knight(3,2,Color.BLACK)));   //down 1 left 2
+        assertTrue(knight3.canKill(new Knight(3,6,Color.BLACK)));   //down 1 right 2
+        assertTrue(knight3.canKill(new Knight(5,2,Color.BLACK)));   //up 1 left 2
+        assertTrue(knight3.canKill(new Knight(5,6,Color.BLACK)));   //up 1 right 2
+        assertTrue(knight3.canKill(new Knight(6,3,Color.BLACK)));   //up 2 left 1
+        assertTrue(knight3.canKill(new Knight(6,5,Color.BLACK)));   // up 2 right 1
 
         assertFalse(knight3.canKill(new Knight(4,4,Color.BLACK)));  // same spot
         assertFalse(knight3.canKill(new Knight(2,3,Color.WHITE)));  // color case
