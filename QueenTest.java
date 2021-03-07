@@ -44,6 +44,57 @@ public class QueenTest {
         assertEquals(Color.BLACK, queen1.getColor());
         assertEquals(Color.WHITE, queen2.getColor());
     }
+    
+    /**
+     * Tests the setRow method
+     */
+    @Test
+    public void testSetRow() {
+        queen2.setRow(0);
+        assertEquals(0, queen2.getRow());
+        queen1.setRow(5);
+        assertEquals(5, queen1.getRow());
+    }
+
+    /**
+     * Tests the Exception in setRow()
+     */
+    @Test(expected = IllegalArgumentException.class)
+    public void testIllegalRow() {
+        queen1.setRow(9);
+        queen2.setRow(-2);
+    }
+
+    /**
+     * Tests the setColumn method
+     */
+    @Test
+    public void testSetColumn() {
+        queen2.setColumn(0);
+        assertEquals(0, queen2.getCol());
+        queen2.setColumn(5);
+        assertEquals(5, queen1.getCol());
+    }
+
+    /**
+     * Tests the Exception in setColumn()
+     */
+    @Test(expected = IllegalArgumentException.class)
+    public void testIllegalColumn() {
+        queen1.setColumn(9);
+        queen2.setColumn(-2);
+    }
+
+    /**
+     * Tests the setColor method
+     */
+    @Test
+    public void testSetColor() {
+        queen1.setColor(Color.BLACK);
+        assertEquals(Color.BLACK, queen1.getColor());
+        queen2.setColor(Color.WHITE);
+        assertEquals(Color.WHITE, queen2.getColor());
+    }
 
     /**
      * Tests the canMove method.
