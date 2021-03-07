@@ -74,6 +74,7 @@ public class Rook implements ChessPiece, BoardSize {
      * @param row changes the object's row with a new row.
      * @throws IllegalArgumentException an error arises when a proposed value is outside the chess board's boundaries.
      */
+    @Override
     public void setRow(int row) throws IllegalArgumentException {
         if (row < MIN_ROW || row > MAX_ROW) {
             throw new IllegalArgumentException("The row/column should range from 0 to 7");
@@ -86,6 +87,7 @@ public class Rook implements ChessPiece, BoardSize {
      * @param column changes the object's column with a new column.
      * @throws IllegalArgumentException an error arises when a value is outside the chess board's boundaries.
      */
+    @Override
     public void setColumn(int column) throws IllegalArgumentException {
         if (column < MIN_COL || column > MAX_COL) {
             throw new IllegalArgumentException("The row/column should range from 0 to 7");
@@ -97,6 +99,7 @@ public class Rook implements ChessPiece, BoardSize {
      * setter method for changing the color of the chess piece.
      * @param color changes the color of the chess piece.
      */
+    @Override
     public void setColor(Color color) {
         this.color = color;
     }
