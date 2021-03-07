@@ -75,6 +75,7 @@ public class Pawn implements ChessPiece, BoardSize {
      * @param row updates the pawn's row with a new row.
      * @throws IllegalArgumentException an error arises when a new proposed value is outside the chess board
      */
+    @Override
     public void setRow(int row) throws IllegalArgumentException {
         if (row < MIN_ROW || row > MAX_ROW) {
             throw new IllegalArgumentException("The row/column should range from 0 to 7");
@@ -88,6 +89,7 @@ public class Pawn implements ChessPiece, BoardSize {
      * @throws IllegalArgumentException an error arises when a new proposed
      *         value is outside the chess board's boundaries.
      */
+    @Override
     public void setColumn(int column) throws IllegalArgumentException {
         if (column < MIN_COL || column > MAX_COL) {
             throw new IllegalArgumentException("The row/column should range from 0 to 7");
@@ -99,6 +101,7 @@ public class Pawn implements ChessPiece, BoardSize {
      * setter method for changing the color of the pawn.
      * @param color changes the color of the pawn.
      */
+    @Override
     public void setColor(Color color) {
         this.color = color;
     }
