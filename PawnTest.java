@@ -51,6 +51,58 @@ public class PawnTest {
     }
 
     /**
+     * Tests the setRow method
+     */
+    @Test
+    public void testSetRow() {
+        pawn2.setRow(0);
+        assertEquals(0, pawn2.getRow());
+        pawn1.setRow(5);
+        assertEquals(5, pawn1.getRow());
+    }
+
+    /**
+     * Tests the Exception in setRow()
+     */
+    @Test(expected = IllegalArgumentException.class)
+    public void testIllegalRow() {
+        pawn1.setRow(9);
+        pawn2.setRow(-2);
+    }
+
+    /**
+     * Tests the setColumn method
+     */
+    @Test
+    public void testSetColumn() {
+        pawn2.setColumn(0);
+        assertEquals(0, pawn2.getCol());
+        pawn1.setColumn(5);
+        assertEquals(5, pawn1.getCol());
+    }
+
+    /**
+     * Tests the Exception in setColumn()
+     */
+    @Test(expected = IllegalArgumentException.class)
+    public void testIllegalColumn() {
+        pawn1.setColumn(9);
+        pawn2.setColumn(-2);
+    }
+
+    /**
+     * Tests the setColor method
+     */
+    @Test
+    public void testSetColor() {
+        pawn1.setColor(Color.BLACK);
+        assertEquals(Color.BLACK, pawn1.getColor());
+        pawn2.setColor(Color.WHITE);
+        assertEquals(Color.WHITE, pawn2.getColor());
+    }
+    
+    
+    /**
      * Tests the canMove method.
      */
     @Test
