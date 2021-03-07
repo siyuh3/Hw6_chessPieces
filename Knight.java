@@ -8,6 +8,8 @@ public class Knight implements ChessPiece, BoardSize {
     private int row;
     private int column;
     private Color color;
+    private final static double SLOPE1 = 2;
+    private final static double SLOPE2 = 0.5;
 
     /**
      * Constructs a knight piece with a row number, column number, and color.
@@ -131,8 +133,9 @@ public class Knight implements ChessPiece, BoardSize {
         
         // We cannot compare double == double, because of decimal precision.
         // Instead we can compare 2 double numbers using Math.abs
-        boolean diff1 = Math.abs(slope - 2) < 0.01;
-        boolean diff2 = Math.abs(slope - 0.5) < 0.01;
+        // Recall that SLOPE1 = 2 and SLOPE2 = 0.5
+        boolean diff1 = Math.abs(slope - SLOPE1) < 0.01;
+        boolean diff2 = Math.abs(slope - SLOPE2) < 0.01;
         return diff1 || diff2;
     }
 
@@ -151,6 +154,7 @@ public class Knight implements ChessPiece, BoardSize {
         Knight knight1 = new Knight(4,4,Color.WHITE);
 
         // valid
+        System.out.println("\nTRUE");
         Knight valid1 = new Knight(2,3,Color.BLACK);
         Knight valid2 = new Knight(2,5, Color.BLACK);
         Knight valid3 = new Knight(3,2,Color.BLACK);
@@ -164,14 +168,13 @@ public class Knight implements ChessPiece, BoardSize {
         System.out.println(knight1.canKill(valid2));
         System.out.println(knight1.canKill(valid3));
         System.out.println(knight1.canKill(valid4));
-        System.out.println();
         System.out.println(knight1.canKill(valid5));
         System.out.println(knight1.canKill(valid6));
         System.out.println(knight1.canKill(valid7));
         System.out.println(knight1.canKill(valid8));
-        System.out.println();
 
         // not valid
+        System.out.println("\nFALSE");
         Knight fail1 = new Knight(1,1, Color.BLACK);
         Knight fail2 = new Knight(1,0, Color.BLACK);
         System.out.println(knight1.canKill(fail1));
