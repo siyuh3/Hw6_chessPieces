@@ -48,6 +48,56 @@ public class RookTest {
     }
 
     /**
+     * Tests the setRow method
+     */
+    @Test
+    public void testSetRow() {
+        rook2.setRow(0);
+        assertEquals(0, rook2.getRow());
+        rook1.setRow(5);
+        assertEquals(5, rook1.getRow());
+    }
+
+    /**
+     * Tests the Exception in setRow()
+     */
+    @Test(expected = IllegalArgumentException.class)
+    public void testIllegalRow() {
+        rook1.setRow(9);
+        rook2.setRow(-2);
+    }
+
+    /**
+     * Tests the setColumn method
+     */
+    @Test
+    public void testSetColumn() {
+        rook2.setColumn(0);
+        assertEquals(0, rook2.getCol());
+        rook2.setColumn(5);
+        assertEquals(5, rook1.getCol());
+    }
+
+    /**
+     * Tests the Exception in setColumn()
+     */
+    @Test(expected = IllegalArgumentException.class)
+    public void testIllegalColumn() {
+        rook1.setColumn(9);
+        rook2.setColumn(-2);
+    }
+
+    /**
+     * Tests the setColor method
+     */
+    @Test
+    public void testSetColor() {
+        rook1.setColor(Color.BLACK);
+        assertEquals(Color.BLACK, rook1.getColor());
+        rook2.setColor(Color.WHITE);
+        assertEquals(Color.WHITE, rook2.getColor());
+    }
+    /**
      * Tests the canMove method.
      */
     @Test
