@@ -8,6 +8,7 @@ public class Queen implements ChessPiece, BoardSize {
     private int row;
     private int column;
     private Color color;
+    private final static double SLOPE1 = 1;
 
     /**
      * Constructs a queen piece with a row number, column number, and color.
@@ -135,8 +136,8 @@ public class Queen implements ChessPiece, BoardSize {
         }
         // Can move diagonally
         else {
-            int slope = rise / run;
-            return (slope == 1 || slope == -1);
+            double slope = rise / run;
+            return Math.abs(slope) == SLOPE1;
         }
     }
 
