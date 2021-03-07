@@ -46,6 +46,57 @@ public class KnightTest {
     }
 
     /**
+     * Tests the setRow method
+     */
+    @Test
+    public void testSetRow() {
+        knight2.setRow(0);
+        assertEquals(0, knight2.getRow());
+        knight1.setRow(5);
+        assertEquals(5, knight1.getRow());
+    }
+
+    /**
+     * Tests the Exception in setRow()
+     */
+    @Test(expected = IllegalArgumentException.class)
+    public void testIllegalRow() {
+        knight1.setRow(9);
+        knight2.setRow(-2);
+    }
+
+    /**
+     * Tests the setColumn method
+     */
+    @Test
+    public void testSetColumn() {
+        knight2.setColumn(0);
+        assertEquals(0, knight2.getCol());
+        knight1.setColumn(5);
+        assertEquals(5, knight1.getCol());
+    }
+
+    /**
+     * Tests the Exception in setColumn()
+     */
+    @Test(expected = IllegalArgumentException.class)
+    public void testIllegalColumn() {
+        knight1.setColumn(9);
+        knight2.setColumn(-2);
+    }
+
+    /**
+     * Tests the setColor method
+     */
+    @Test
+    public void testSetColor() {
+        knight1.setColor(Color.BLACK);
+        assertEquals(Color.BLACK, knight1.getColor());
+        knight2.setColor(Color.WHITE);
+        assertEquals(Color.WHITE, knight2.getColor());
+    }
+    
+    /**
      * Tests the canMove method.
      */
     @Test
