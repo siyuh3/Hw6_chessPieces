@@ -11,15 +11,13 @@ public class PawnTest {
     private Pawn pawn2;
     private Pawn pawn3;
     private Pawn pawn4;
-    private Pawn pawn5;
 
     @Before
     public void setUp() {
         pawn1 = new Pawn(1, 0, Color.BLACK);
         pawn2 = new Pawn(6, 0, Color.WHITE);
-        pawn3 = new Pawn(6, 5, Color.WHITE);
+        pawn3 = new Pawn(1, 1, Color.WHITE);
         pawn4 = new Pawn(6, 1, Color.BLACK);
-        pawn5 = new Pawn(1, 1, Color.WHITE);
     }
 
     /**
@@ -130,18 +128,18 @@ public class PawnTest {
      */
     @Test
     public void canKill() {
-        assertTrue(pawn5.canKill(new Pawn(2, 0, Color.BLACK)));
-        assertTrue(pawn5.canKill(new Pawn(2, 2, Color.BLACK)));
+        assertTrue(pawn3.canKill(new Pawn(2, 0, Color.BLACK)));
+        assertTrue(pawn3.canKill(new Pawn(2, 2, Color.BLACK)));
 
-        assertFalse(pawn5.canKill(new Pawn(0, 0, Color.BLACK)));
-        assertFalse(pawn5.canKill(new Pawn(0, 1, Color.BLACK)));
-        assertFalse(pawn5.canKill(new Pawn(0, 2, Color.BLACK)));
-        assertFalse(pawn5.canKill(new Pawn(1, 0, Color.BLACK)));
-        assertFalse(pawn5.canKill(new Pawn(1, 2, Color.BLACK)));
-        assertFalse(pawn5.canKill(new Pawn(2, 0, Color.WHITE))); // same color
-        assertFalse(pawn5.canKill(new Pawn(2, 1, Color.BLACK)));
-        assertFalse(pawn5.canKill(new Pawn(2, 3, Color.BLACK)));
-        assertFalse(pawn5.canKill(new Pawn(3, 2, Color.BLACK)));
+        assertFalse(pawn3.canKill(new Pawn(0, 0, Color.BLACK)));
+        assertFalse(pawn3.canKill(new Pawn(0, 1, Color.BLACK)));
+        assertFalse(pawn3.canKill(new Pawn(0, 2, Color.BLACK)));
+        assertFalse(pawn3.canKill(new Pawn(1, 0, Color.BLACK)));
+        assertFalse(pawn3.canKill(new Pawn(1, 2, Color.BLACK)));
+        assertFalse(pawn3.canKill(new Pawn(2, 0, Color.WHITE))); // same color
+        assertFalse(pawn3.canKill(new Pawn(2, 1, Color.BLACK)));
+        assertFalse(pawn3.canKill(new Pawn(2, 3, Color.BLACK)));
+        assertFalse(pawn3.canKill(new Pawn(3, 2, Color.BLACK)));
 
 
         assertTrue(pawn4.canKill(new Pawn(5, 0, Color.WHITE)));

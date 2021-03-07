@@ -112,10 +112,10 @@ public class BishopTest {
      */
     @Test
     public void testCanKill() {
-        assertTrue(bishop3.canKill(new Bishop(1,1,Color.BLACK)));
-        assertTrue(bishop3.canKill(new Bishop(1,3,Color.BLACK)));
-        assertTrue(bishop3.canKill(new Bishop(3,1,Color.BLACK)));
-        assertTrue(bishop3.canKill(new Bishop(3,3,Color.BLACK)));
+        assertTrue(bishop3.canKill(new Bishop(1,1,Color.BLACK)));   // diag down left
+        assertTrue(bishop3.canKill(new Bishop(1,3,Color.BLACK)));   // diag down right
+        assertTrue(bishop3.canKill(new Bishop(3,1,Color.BLACK)));   // diag up left
+        assertTrue(bishop3.canKill(new Bishop(3,3,Color.BLACK)));   // diag up right
 
         assertFalse(bishop3.canKill(new Bishop(3,2,Color.BLACK)));  // same column
         assertFalse(bishop3.canKill(new Bishop(1,2,Color.BLACK)));  // same column
