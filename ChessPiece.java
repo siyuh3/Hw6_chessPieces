@@ -22,6 +22,21 @@ public interface ChessPiece {
     public Color getColor();
 
     /**
+     * Sets the row of a chess piece
+     */
+    public void setRow(int row);
+
+    /**
+     * Sets the column of a chess piece
+     */
+    public void setColumn(int column);
+
+    /**
+     * Sets the color of a chess piece
+     */
+    public void setColor(Color color);
+    
+    /**
      * @param row the position in the row between 0 and 7
      * @param col the position in the column between 0 and 7
      * @return true or false whether the current move is able or hindered
