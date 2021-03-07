@@ -128,7 +128,7 @@ public class Bishop implements ChessPiece, BoardSize {
         int rise = row - this.getRow();
         int run = col - this.getCol();
         // Can't move horizontally or vertically
-        // "Can't move to original spot" was checked before.
+        // Can't move to original spot.
         if (rise * run == 0) {
             return false;
         }
