@@ -17,7 +17,7 @@ public class RookTest {
     public void setUp() {
         rook1 = new Rook(0, 0, Color.BLACK);
         rook2 = new Rook(0, 7, Color.WHITE);
-        rook3 = new Rook(4,4,Color.WHITE);
+        rook3 = new Rook(4, 4, Color.WHITE);
     }
 
     /**
@@ -97,13 +97,18 @@ public class RookTest {
         rook2.setColor(Color.WHITE);
         assertEquals(Color.WHITE, rook2.getColor());
     }
+
     /**
      * Tests the canMove method.
      */
     @Test
     public void canMoveTest() {
         assertTrue(rook1.canMove(0, 1));
-        assertFalse(rook1.canMove(0, 0));
+        assertTrue(rook1.canMove(5, 0));
+
+        assertFalse(rook1.canMove(0, 0));  // same spot
+        assertFalse(rook1.canMove(1, 1));  // diag
+        assertFalse(rook1.canMove(1, 2));  // L shape
     }
 
     /**
@@ -116,10 +121,8 @@ public class RookTest {
         assertTrue(rook3.canKill(new Rook(4,3,Color.BLACK)));
         assertTrue(rook3.canKill(new Rook(4,5,Color.BLACK)));
         assertTrue(rook3.canKill(new Rook(4,5,Color.BLACK)));
-        assertFalse(rook3.canKill(new Rook(5,3,Color.BLACK)));
+
+        assertFalse(rook3.canKill(new Rook(5,3,Color.BLACK))); // diag
         assertFalse(rook3.canKill(new Rook(5,4,Color.WHITE))); // same color test
-
-
-
     }
 }
