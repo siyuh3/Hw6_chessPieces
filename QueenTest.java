@@ -15,7 +15,7 @@ public class QueenTest {
     public void setUp() {
         queen1 = new Queen(0, 3, Color.BLACK);
         queen2 = new Queen(7, 3, Color.WHITE);
-        queen3 = new Queen(2,2, Color.WHITE);
+        queen3 = new Queen(2, 2, Color.WHITE);
     }
 
     /**
@@ -101,9 +101,11 @@ public class QueenTest {
      */
     @Test
     public void canMoveTest() {
-        assertTrue(queen1.canMove(7, 3));
-        assertTrue(queen1.canMove(3, 0));
-        assertFalse(queen2.canMove(0, 4));
+        assertTrue(queen1.canMove(7, 3));  // vertically???
+        assertTrue(queen1.canMove(3, 0));  // diagonally
+        assertTrue(queen1.canMove(0, 7));  // horizontally???
+
+        assertFalse(queen2.canMove(0, 4));  // invalid move
     }
 
     /**
@@ -114,8 +116,8 @@ public class QueenTest {
         assertTrue(queen3.canKill(new Queen(1,1, Color.BLACK)));
         assertTrue(queen3.canKill(new Queen(1,2, Color.BLACK)));
         assertTrue(queen3.canKill(new Queen(1,3, Color.BLACK)));
-        assertTrue(queen3.canKill(new Queen(2,1,Color.BLACK)));
-        assertTrue(queen3.canKill(new Queen(2,3,Color.BLACK)));
+        assertTrue(queen3.canKill(new Queen(2,1, Color.BLACK)));
+        assertTrue(queen3.canKill(new Queen(2,3, Color.BLACK)));
         assertTrue(queen3.canKill(new Queen(3,1, Color.BLACK)));
         assertTrue(queen3.canKill(new Queen(3,2, Color.BLACK)));
         assertTrue(queen3.canKill(new Queen(3,3, Color.BLACK)));
@@ -126,6 +128,6 @@ public class QueenTest {
         assertFalse(queen3.canKill(new Queen(1,4, Color.BLACK)));
         assertFalse(queen3.canKill(new Queen(3,4, Color.BLACK)));
         assertFalse(queen3.canKill(new Queen(4,3, Color.BLACK)));
-        assertFalse(queen3.canKill(new Queen(1,1,Color.WHITE)));
+        assertFalse(queen3.canKill(new Queen(1,1, Color.WHITE)));
     }
 }
