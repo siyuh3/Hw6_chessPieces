@@ -116,13 +116,13 @@ public class RookTest {
      */
     @Test
     public void canKill() {
-        assertTrue(rook3.canKill(new Rook(2,4, Color.BLACK)));
-        assertTrue(rook3.canKill(new Rook(3,4, Color.BLACK)));
-        assertTrue(rook3.canKill(new Rook(4,3,Color.BLACK)));
-        assertTrue(rook3.canKill(new Rook(4,5,Color.BLACK)));
-        assertTrue(rook3.canKill(new Rook(4,5,Color.BLACK)));
+        assertTrue(rook3.canKill(new Rook(2,4, Color.BLACK)));  // down
+        assertTrue(rook3.canKill(new Rook(4,3,Color.BLACK)));   // left
+        assertTrue(rook3.canKill(new Rook(4,5,Color.BLACK)));   // right
+        assertTrue(rook3.canKill(new Rook(5,4,Color.BLACK)));   // up
 
         assertFalse(rook3.canKill(new Rook(5,3,Color.BLACK))); // diag
         assertFalse(rook3.canKill(new Rook(5,4,Color.WHITE))); // same color test
+
     }
 }
