@@ -101,10 +101,10 @@ public class KnightTest {
      */
     @Test
     public void testCanMove(){
-        assertFalse(knight1.canMove(0,1));
         assertTrue(knight1.canMove(2, 2));
         assertTrue(knight1.canMove(1, 3));
-        assertFalse(knight1.canMove(3, 2));
+        assertFalse(knight1.canMove(0,1));  // same spot
+        assertFalse(knight1.canMove(3, 2));  // too far
     }
 
     /**
@@ -121,9 +121,9 @@ public class KnightTest {
         assertTrue(knight3.canKill(new Knight(6,3,Color.BLACK)));
         assertTrue(knight3.canKill(new Knight(6,5,Color.BLACK)));
 
-        assertFalse(knight3.canKill(new Knight(4,4,Color.BLACK)));
-        assertFalse(knight3.canKill(new Knight(2,3,Color.WHITE))); // color case
-        assertFalse(knight3.canKill(new Knight(1,1,Color.BLACK)));
-        assertFalse(knight3.canKill(new Knight(3,4,Color.BLACK)));
+        assertFalse(knight3.canKill(new Knight(4,4,Color.BLACK)));  // same spot
+        assertFalse(knight3.canKill(new Knight(2,3,Color.WHITE)));  // color case
+        assertFalse(knight3.canKill(new Knight(1,1,Color.BLACK)));  // too far
+        assertFalse(knight3.canKill(new Knight(3,4,Color.BLACK)));  // not L shape move
     }
 }

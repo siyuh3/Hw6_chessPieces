@@ -9,7 +9,7 @@ public class Bishop implements ChessPiece, BoardSize {
     private int row;
     private int column;
     private Color color;
-    private final static int SLOPE1 = 1;
+    private final static double SLOPE1 = 1;
 
     /**
      * Constructs a bishop piece with a row number, column number, and color.
@@ -136,7 +136,7 @@ public class Bishop implements ChessPiece, BoardSize {
         }
         // Can move diagonally
         else {
-            int slope = rise / run;
+            double slope = rise / run;
             // Recall that SLOPE1 = 1
             return Math.abs(slope) == SLOPE1;
         }
