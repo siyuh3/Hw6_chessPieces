@@ -26,7 +26,7 @@ public class Queen implements ChessPiece, BoardSize {
      * Default constructor
      */
     public Queen() {
-        setRow(7);
+        setRow(0);
         setColumn(3);
         setColor(Color.WHITE);
     }

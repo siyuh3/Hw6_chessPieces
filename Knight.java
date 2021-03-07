@@ -27,7 +27,7 @@ public class Knight implements ChessPiece, BoardSize {
      * Default constructor
      */
     public Knight() {
-        setRow(7);
+        setRow(0);
         setColumn(6);
         setColor(Color.WHITE);
     }
