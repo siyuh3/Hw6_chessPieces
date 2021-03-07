@@ -9,13 +9,13 @@ import static org.junit.Assert.*;
 public class BishopTest {
     private Bishop bishop1;
     private Bishop bishop2;
-    private Bishop bishop5;
+    private Bishop bishop3;
 
     @Before
     public void setUp() {
         bishop1 = new Bishop(0, 2, Color.BLACK);
         bishop2 = new Bishop(0, 5, Color.WHITE);
-        bishop5 = new Bishop(2, 2, Color.WHITE);
+        bishop3 = new Bishop(2, 2, Color.WHITE);
     }
 
     /**
@@ -112,16 +112,16 @@ public class BishopTest {
      */
     @Test
     public void testCanKill() {
-        assertTrue(bishop5.canKill(new Bishop(1,1,Color.BLACK)));
-        assertTrue(bishop5.canKill(new Bishop(1,3,Color.BLACK)));
-        assertTrue(bishop5.canKill(new Bishop(3,1,Color.BLACK)));
-        assertTrue(bishop5.canKill(new Bishop(3,3,Color.BLACK)));
+        assertTrue(bishop3.canKill(new Bishop(1,1,Color.BLACK)));
+        assertTrue(bishop3.canKill(new Bishop(1,3,Color.BLACK)));
+        assertTrue(bishop3.canKill(new Bishop(3,1,Color.BLACK)));
+        assertTrue(bishop3.canKill(new Bishop(3,3,Color.BLACK)));
 
-        assertFalse(bishop5.canKill(new Bishop(3,2,Color.BLACK)));  // same column
-        assertFalse(bishop5.canKill(new Bishop(1,2,Color.BLACK)));  // same column
-        assertFalse(bishop5.canKill(new Bishop(2,1,Color.BLACK)));  // same row
-        assertFalse(bishop5.canKill(new Bishop(2,3,Color.BLACK)));  // same row
-        assertFalse(bishop5.canKill(new Bishop(3,3,Color.WHITE)));  // same color
-        assertFalse(bishop5.canKill(new Bishop(2,2,Color.WHITE)));  // same spot
+        assertFalse(bishop3.canKill(new Bishop(3,2,Color.BLACK)));  // same column
+        assertFalse(bishop3.canKill(new Bishop(1,2,Color.BLACK)));  // same column
+        assertFalse(bishop3.canKill(new Bishop(2,1,Color.BLACK)));  // same row
+        assertFalse(bishop3.canKill(new Bishop(2,3,Color.BLACK)));  // same row
+        assertFalse(bishop3.canKill(new Bishop(3,3,Color.WHITE)));  // same color
+        assertFalse(bishop3.canKill(new Bishop(2,2,Color.WHITE)));  // same spot
     }
 }
