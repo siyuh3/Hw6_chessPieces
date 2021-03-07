@@ -32,17 +32,6 @@ public class Bishop implements ChessPiece, BoardSize {
         setColor(Color.WHITE);
     }
 
-    /**
-     * Copy constructor
-     */
-    public Bishop(Bishop original) throws IllegalArgumentException {
-        if (original == null) {
-            throw new IllegalArgumentException("Original Bishop cannot be null");
-        }
-        setRow(original.getRow());
-        setColor(original.getColor());
-        setColumn(original.getCol());
-    }
 
     /**
      * getRow method.

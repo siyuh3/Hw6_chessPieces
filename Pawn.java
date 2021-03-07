@@ -34,17 +34,6 @@ public class Pawn implements ChessPiece, BoardSize {
     }
 
     /**
-     * The copy constructor use for copy original Pawn
-     *
-     * @param original original Pawn object
-     */
-    public Pawn(Pawn original) {
-        setRow(original.getRow());
-        setColor(original.getColor());
-        setColumn(original.getCol());
-    }
-
-    /**
      * getRow method.
      * @return returns the pawn's current row.
      */

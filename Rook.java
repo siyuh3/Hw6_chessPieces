@@ -32,17 +32,6 @@ public class Rook implements ChessPiece, BoardSize {
     }
 
     /**
-     * The copy constructor use for copy original Pawn
-     *
-     * @param original original Rook object
-     */
-    public Rook(Rook original) {
-        setRow(original.getRow());
-        setColor(original.getColor());
-        setColumn(original.getCol());
-    }
-
-    /**
      * getRow method
      * @return returns the Rook's current row.
      */

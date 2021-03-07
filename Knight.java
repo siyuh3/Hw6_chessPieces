@@ -32,14 +32,6 @@ public class Knight implements ChessPiece, BoardSize {
         setColor(Color.WHITE);
     }
 
-    /**
-     * Copy constructor
-     */
-    public Knight(Knight original) {
-        setRow(original.getRow());
-        setColor(original.getColor());
-        setColumn(original.getCol());
-    }
 
     /**
      * getRow method.

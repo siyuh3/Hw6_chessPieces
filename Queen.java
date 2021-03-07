@@ -32,15 +32,6 @@ public class Queen implements ChessPiece, BoardSize {
     }
 
     /**
-     * Copy constructor
-     */
-    public Queen(Queen original) {
-        setRow(original.getRow());
-        setColor(original.getColor());
-        setColumn(original.getCol());
-    }
-
-    /**
      * getRow method.
      * @return returns the queen's current row.
      */
