@@ -151,7 +151,10 @@ public class Rook implements ChessPiece, BoardSize {
         System.out.println(rook1.canKill(new Rook(3,4,Color.BLACK)) + " = True"); // down
         System.out.println(rook1.canKill(new Rook(4,3, Color.BLACK)) + " = True"); //L
         System.out.println(rook1.canKill( new Rook(5, 4, Color.BLACK)) + " = True"); // Up
+
         System.out.println("\nFALSE");
-        System.out.println(rook1.canKill(new Rook(5,3,Color.BLACK)) + " = False");
+        System.out.println(rook1.canKill(new Rook(5,3,Color.BLACK)) + " = False");  // diag
+        System.out.println(rook1.canKill(new Rook(3,5,Color.BLACK)) + " = False");  // diag
+        System.out.println(rook1.canKill(new Rook(4,4,Color.BLACK)) + " = False");  // same spot
     }
 }
