@@ -48,6 +48,56 @@ public class BishopTest {
         assertEquals(Color.WHITE, bishop2.getColor());
     }
 
+     /**
+     * Tests the setRow method
+     */
+    @Test
+    public void testSetRow() {
+        bishop2.setRow(0);
+        assertEquals(0, bishop2.getRow());
+        bishop1.setRow(5);
+        assertEquals(5, bishop1.getRow());
+    }
+
+    /**
+     * Tests the Exception in setRow()
+     */
+    @Test(expected = IllegalArgumentException.class)
+    public void testIllegalRow() {
+        bishop1.setRow(9);
+        bishop2.setRow(-2);
+    }
+
+    /**
+     * Tests the setColumn method
+     */
+    @Test
+    public void testSetColumn() {
+        bishop2.setColumn(0);
+        assertEquals(0, bishop2.getCol());
+        bishop1.setColumn(5);
+        assertEquals(5, bishop1.getCol());
+    }
+
+    /**
+     * Tests the Exception in setColumn()
+     */
+    @Test(expected = IllegalArgumentException.class)
+    public void testIllegalColumn() {
+        bishop1.setColumn(9);
+        bishop2.setColumn(-2);
+    }
+
+    /**
+     * Tests the setColor method
+     */
+    @Test
+    public void testSetColor() {
+        bishop1.setColor(Color.BLACK);
+        assertEquals(Color.BLACK, bishop1.getColor());
+        bishop2.setColor(Color.WHITE);
+        assertEquals(Color.WHITE, bishop2.getColor());
+    }
     /**
      * Tests the canMove method
      */
