@@ -1,8 +1,8 @@
 /**
  * @program: Hw6_chessPieces
- * @description: This class represent the Pawn piece implements ChessPice class and BoardSize class, the Pawn should
- * move only ahead, not backwards towards where its color started. Init position is (0, 0) and(0, 7).
- * @author: Siyu Hou, Kicho Yu
+ * @description: This class represents the Pawn piece and implements the ChessPiece Interface and BoardSize Interface,
+ *               the Pawn should move forward only from where its color started. Init position is (0, 0) and(0, 7).
+ * @author: Siyu Hou, Kicho Yu, Shuwei Wang, Chance Lamberth
  * @create: 2021-02-26 02:42
  **/
 public class Pawn implements ChessPiece, BoardSize {
