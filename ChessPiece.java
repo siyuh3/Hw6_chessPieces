@@ -1,7 +1,7 @@
 /**
  * @program: Hw6_chessPieces
- * @description: This interface contains all operation that all types of chessPieces
- * @author: Siyu Hou, Kicho Yu
+ * @description: This interface contains operations of all chess pieces
+ * @author: Siyu Hou, Kicho Yu, Shuwei Wang, Chance Lamberth
  * @create: 2021-02-26 02:25
  **/
 public interface ChessPiece {
