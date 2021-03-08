@@ -1,6 +1,6 @@
 /**
  * @program: Hw6_chessPieces
- * @description:
+ * @description: Creates constant variables for validating spots in all chess piece classes
  * @author: Siyu Hou
  * @create: 2021-03-03 01:28
  **/
