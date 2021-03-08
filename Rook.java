@@ -1,7 +1,7 @@
 /**
  * @program: Hw6_chessPieces
- * @description:
- * @author: Siyu Hou, Kicho Yu
+ * @description: This is the Rook class which implements the ChessPiece Interface and the BoardSize interface
+ * @author: Siyu Hou, Kicho Yu, Shuwei Wang, Chance Lamberth
  * @create: 2021-02-26 02:41
  **/
 public class Rook implements ChessPiece, BoardSize {
