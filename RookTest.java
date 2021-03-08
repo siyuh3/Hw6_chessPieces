@@ -74,7 +74,7 @@ public class RookTest {
     public void testSetColumn() {
         rook2.setColumn(0);
         assertEquals(0, rook2.getCol());
-        rook2.setColumn(5);
+        rook1.setColumn(5);
         assertEquals(5, rook1.getCol());
     }
 
