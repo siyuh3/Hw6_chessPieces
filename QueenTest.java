@@ -72,7 +72,7 @@ public class QueenTest {
     public void testSetColumn() {
         queen2.setColumn(0);
         assertEquals(0, queen2.getCol());
-        queen2.setColumn(5);
+        queen1.setColumn(5);
         assertEquals(5, queen1.getCol());
     }
 
