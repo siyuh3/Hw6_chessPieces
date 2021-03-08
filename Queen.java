@@ -1,7 +1,7 @@
 /**
  * @program: Hw6_chessPieces
- * @description: this class is Queen class which implements the ChessPiece class
- * @author: Siyu Hou, Kicho Yu
+ * @description: This is the Queen class which implements the ChessPiece interface and the BoardSize interface
+ * @author: Siyu Hou, Kicho Yu, Shuwei Wang, Chance Lamberth
  * @create: 2021-02-26 02:41
  **/
 public class Queen implements ChessPiece, BoardSize {
