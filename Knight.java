@@ -1,7 +1,7 @@
 /**
  * @program: Hw6_chessPieces
- * @description: This class is Knight class that implements the ChessPiece class
- * @author: Siyu Hou, Kicho Yu
+ * @description: This class is a Knight class that implements the ChessPiece class
+ * @author: Siyu Hou, Kicho Yu, Shuwei Wang, Chance Lamberth
  * @create: 2021-02-26 02:40
  **/
 public class Knight implements ChessPiece, BoardSize {
